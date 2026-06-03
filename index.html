@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your English Buddy – Possessive Adjectives & The Alphabet</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:     #e63946;
+    --teal:    #2a9d8f;
+    --blue:    #264653;
+    --yellow:  #f4a261;
+    --light:   #f8f9fa;
+    --white:   #ffffff;
+    --gray:    #6c757d;
+    --light-gray: #e9ecef;
+    --green:   #2dc653;
+    --purple:  #7b2d8b;
+    --shadow:  0 4px 20px rgba(0,0,0,0.10);
+    --radius:  14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #f0f4f8;
+    color: var(--blue);
+    min-height: 100vh;
+    font-size: 18px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+    color: white;
+    padding: 28px 20px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+  }
+  header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    letter-spacing: 1px;
+  }
+  header p { font-size: 0.95rem; opacity: 0.85; margin-top: 6px; }
+  .badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--blue);
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    display: flex;
+    background: var(--blue);
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 14px 20px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.65);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tab-btn.active {
+    color: var(--yellow);
+    border-bottom-color: var(--yellow);
+  }
+  .tab-btn:hover:not(.active) { color: white; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; padding: 20px 16px 60px; max-width: 860px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  /* ── CARDS ── */
+  .card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--teal);
+  }
+  .card.red-border   { border-left-color: var(--red); }
+  .card.yellow-border{ border-left-color: var(--yellow); }
+  .card.purple-border{ border-left-color: var(--purple); }
+  .card.blue-border  { border-left-color: var(--blue); }
+
+  .card h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    color: var(--teal);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--blue);
+    margin: 14px 0 8px;
+  }
+  .card p { line-height: 1.8; font-size: 1.05rem; }
+  .es { color: var(--gray); font-style: italic; font-size: 0.97rem; }
+
+  /* ── TABLE ── */
+  .pa-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 1rem; }
+  .pa-table th {
+    background: var(--teal);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 800;
+  }
+  .pa-table td { padding: 9px 12px; border-bottom: 1px solid var(--light-gray); }
+  .pa-table tr:nth-child(even) td { background: #f0faf8; }
+  .pa-table .pronoun { color: var(--red); font-weight: 800; }
+  .pa-table .adj     { color: var(--teal); font-weight: 800; }
+  .pa-table .example { color: var(--blue); }
+
+  /* ── ITS vs IT'S BOX ── */
+  .compare-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media(max-width:500px){ .compare-box { grid-template-columns: 1fr; } }
+  .compare-item {
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .compare-item.its-adj { background: #e8f8f5; border: 2px solid var(--teal); }
+  .compare-item.its-contr { background: #fef2e8; border: 2px solid var(--yellow); }
+  .compare-item .big { font-family: 'Fredoka One', cursive; font-size: 1.6rem; }
+  .compare-item.its-adj .big { color: var(--teal); }
+  .compare-item.its-contr .big { color: var(--yellow); }
+  .compare-item .label { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; color: var(--gray); }
+  .compare-item .meaning { font-size: 0.88rem; margin-top: 8px; }
+
+  /* ── EXERCISE COMMON ── */
+  .ex-intro {
+    font-size: 0.97rem;
+    color: var(--gray);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .q-block {
+    background: var(--light);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    border: 2px solid var(--light-gray);
+    transition: border-color 0.2s;
+  }
+  .q-block:focus-within { border-color: var(--teal); }
+  .q-text { font-weight: 700; font-size: 1.05rem; margin-bottom: 8px; }
+  .q-num { color: var(--red); font-weight: 900; margin-right: 4px; }
+
+  /* ── FILL IN THE BLANK ── */
+  .blank-input {
+    border: none;
+    border-bottom: 2px solid var(--teal);
+    background: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--blue);
+    width: 100px;
+    text-align: center;
+    outline: none;
+    padding: 2px 4px;
+    transition: border-color 0.2s;
+  }
+  .blank-input:focus { border-color: var(--red); }
+
+  /* ── ERROR IDENTIFICATION ── */
+  .error-sentence { font-size: 0.95rem; font-weight: 700; }
+  .error-sentence span.underline { text-decoration: underline; text-decoration-color: var(--red); color: var(--red); }
+
+  /* ── MULTIPLE CHOICE ── */
+  .choices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .choice-btn {
+    padding: 9px 20px;
+    border-radius: 20px;
+    border: 2px solid var(--teal);
+    background: white;
+    color: var(--teal);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .choice-btn:hover { background: var(--teal); color: white; }
+  .choice-btn.selected-correct { background: var(--green); border-color: var(--green); color: white; }
+  .choice-btn.selected-wrong   { background: var(--red);   border-color: var(--red);   color: white; }
+  .choice-btn.correct-reveal   { background: var(--green); border-color: var(--green); color: white; }
+  .choice-btn:disabled { cursor: default; }
+
+  /* ── STORY CLOZE ── */
+  .story-text { font-size: 1.08rem; line-height: 2.2; }
+  .story-select {
+    display: inline-block;
+    border: none;
+    border-bottom: 2px solid var(--purple);
+    background: #f5eeff;
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--purple);
+    padding: 2px 8px;
+    cursor: pointer;
+    outline: none;
+    margin: 0 3px;
+  }
+  .story-select.correct  { background: #d4f7df; border-color: var(--green); color: #155724; }
+  .story-select.wrong    { background: #fde8e8; border-color: var(--red);   color: var(--red); }
+
+  /* ── HINT & ANSWER SYSTEM ── */
+  .hint-answer-area { margin-top: 10px; }
+  .hint-btn, .answer-btn, .check-btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.92rem;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.18s;
+    margin-right: 6px;
+    margin-top: 6px;
+  }
+  .hint-btn   { background: #fff3cd; color: #856404; border: 2px solid #ffc107; }
+  .hint-btn:hover { background: #ffc107; color: white; }
+  .answer-btn { background: var(--teal); color: white; }
+  .answer-btn:hover { background: var(--blue); }
+  .check-btn  { background: var(--red); color: white; }
+  .check-btn:hover { background: #c0392b; }
+  .hint-box {
+    display: none;
+    background: #fffbea;
+    border: 1px dashed #ffc107;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 0.97rem;
+    color: #856404;
+  }
+  .hint-box.visible { display: block; }
+  .answer-box {
+    display: none;
+    background: #e8f8f5;
+    border: 1px solid var(--teal);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 1rem;
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .answer-box.visible { display: block; }
+  .feedback { font-size: 0.95rem; margin-top: 6px; font-weight: 700; }
+  .feedback.ok  { color: var(--green); }
+  .feedback.bad { color: var(--red); }
+
+  /* ── SPEAKING ── */
+  .speaking-card {
+    background: linear-gradient(135deg, #fef9f0, #fff8ec);
+    border: 2px dashed var(--yellow);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .speaking-card .q-text { color: var(--blue); }
+  .sp-sample {
+    display: none;
+    background: white;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-top: 8px;
+    font-size: 0.97rem;
+    border-left: 3px solid var(--yellow);
+  }
+  .sp-sample .en { color: var(--blue); font-weight: 700; }
+  .sp-sample .sp { color: var(--gray); font-style: italic; }
+  .sp-sample.visible { display: block; }
+
+  /* ── ALPHABET SECTION ── */
+  .alphabet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .letter-tile {
+    background: white;
+    border: 2px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 10px 6px;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .letter-tile:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(42,157,143,0.18); }
+  .letter-tile .ltr { font-family: 'Fredoka One', cursive; font-size: 1.7rem; color: var(--blue); }
+  .letter-tile .pron { font-size: 0.82rem; color: var(--teal); font-weight: 700; margin-top: 2px; }
+  .letter-tile.vowel { border-color: var(--red); }
+  .letter-tile.vowel .ltr { color: var(--red); }
+
+  .spelling-word {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0;
+    align-items: center;
+  }
+  .letter-chip {
+    background: var(--blue);
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+  }
+
+  /* ── ACCENT NOTE ── */
+  .accent-note {
+    background: #fffbea;
+    border-left: 4px solid #ffc107;
+    border-radius: 8px;
+    padding: 14px;
+    margin: 14px 0;
+  }
+  .accent-note h4 { color: #856404; font-size: 0.9rem; margin-bottom: 8px; }
+  .accent-type { display: inline-block; background: #ffc107; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 800; font-size: 0.85rem; margin-right: 6px; }
+
+
+
+  /* ── SECTION HEADER ── */
+  .sec-header {
+    text-align: center;
+    margin-bottom: 22px;
+    padding-top: 10px;
+  }
+  .sec-header h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--blue);
+  }
+  .sec-header p { color: var(--gray); font-size: 0.9rem; margin-top: 6px; }
+  .sec-icon { font-size: 2rem; }
+
+  /* ── PROGRESS DOTS ── */
+  .progress-dots { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0 6px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--light-gray); transition: background 0.3s; }
+  .dot.done { background: var(--green); }
+  .dot.wrong-dot { background: var(--red); }
+
+  /* ── DIVIDER ── */
+  .divider { height: 2px; background: linear-gradient(90deg, var(--teal), var(--red)); border-radius: 2px; margin: 24px 0; opacity: 0.25; }
+
+  /* ── FORMULA TAG ── */
+  .formula-tag {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .formula-tag.red { background: var(--red); }
+
+
+
+  /* ── RESULTS PANEL ── */
+  .results-panel {
+    margin-top: 18px;
+    background: var(--blue);
+    color: white;
+    border-radius: 12px;
+    padding: 18px 20px;
+    animation: fadeIn 0.3s ease;
+  }
+  .results-panel h3 { font-family: 'Fredoka One', cursive; font-size: 1.3rem; margin-bottom: 12px; color: var(--yellow); }
+  .results-panel .score-big { font-family: 'Fredoka One', cursive; font-size: 2.6rem; color: var(--yellow); }
+  .results-panel .result-row { display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; font-size: 0.97rem; line-height:1.5; }
+  .results-panel .r-ok  { color: #7ef5b0; }
+  .results-panel .r-bad { color: #ffaaaa; }
+  .results-panel .bar-bg { background: rgba(255,255,255,0.15); border-radius:20px; height:12px; margin:10px 0 4px; overflow:hidden; }
+  .results-panel .bar-fill { height:100%; border-radius:20px; background: linear-gradient(90deg, var(--teal), var(--green)); transition: width 0.6s ease; }
+  .results-panel .verdict { font-size:1rem; font-weight:800; margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.15); }
+
+  /* Spelling: remove individual check btn style conflict */
+  @media(max-width:480px){
+    .card { padding: 16px 14px; }
+    .tab-btn { padding: 12px 14px; font-size: 0.78rem; }
+    .blank-input { width: 70px; }
+  }
+
+  /* Animation */
+  @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform:none; } }
+  .section.active { animation: fadeIn 0.3s ease; }
+
+  /* Alphabet spelling exercise input */
+  .spell-input {
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    width: 100%;
+    max-width: 360px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .spell-input:focus { border-color: var(--teal); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Your English Buddy</h1>
+  <p>Interactive Study Guide — Basic / Intermediate</p>
+  <span class="badge" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.85);font-size:0.7rem;letter-spacing:1.5px;">© Your English Buddy · Private Use Only · All Rights Reserved</span>
+</header>
+
+<nav class="tab-nav" role="tablist">
+  <button class="tab-btn active" onclick="showTab('theory',this)"   >📖 Theory</button>
+  <button class="tab-btn"        onclick="showTab('fill',this)"     >✏️ Fill In</button>
+  <button class="tab-btn"        onclick="showTab('errors',this)"   >🔍 Errors</button>
+  <button class="tab-btn"        onclick="showTab('mc',this)"       >🎯 Multiple Choice</button>
+  <button class="tab-btn"        onclick="showTab('story',this)"    >📖 Story</button>
+  <button class="tab-btn"        onclick="showTab('speaking',this)" >🗣️ Speaking</button>
+  <button class="tab-btn"        onclick="showTab('alphabet',this)" >🔤 Alphabet</button>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     TAB 1 · THEORY
+══════════════════════════════════════════════ -->
+<section id="theory" class="section active">
+  <div class="sec-header">
+    <div class="sec-icon">📖</div>
+    <h2>Possessive Adjectives</h2>
+    <p>Los adjetivos posesivos — cuándo usarlos y cómo no confundirlos</p>
+  </div>
+
+  <div class="card">
+    <h2>🧠 What are Possessive Adjectives? <span class="formula-tag">Theory</span></h2>
+    <p>Possessive adjectives tell us <strong>who something belongs to</strong>. They always go before a noun.</p>
+    <p class="es">Los adjetivos posesivos indican <em>a quién pertenece algo</em>. Siempre van antes del sustantivo.</p>
+    <br>
+    <p>✅ <strong>my</strong> book &nbsp;|&nbsp; <strong>her</strong> car &nbsp;|&nbsp; <strong>their</strong> house</p>
+    <p class="es">✅ <em>mi</em> libro &nbsp;|&nbsp; <em>su</em> carro (de ella) &nbsp;|&nbsp; <em>su/sus</em> casa (de ellos)</p>
+  </div>
+
+  <div class="card">
+    <h2>📋 Complete Reference Table</h2>
+    <table class="pa-table">
+      <thead>
+        <tr><th>Pronoun / Pronombre</th><th>Possessive Adj. / Adjetivo posesivo</th><th>Example / Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="pronoun">I</td><td class="adj">my</td><td class="example">This is <strong>my</strong> phone. — Este es <em>mi</em> teléfono.</td></tr>
+        <tr><td class="pronoun">You</td><td class="adj">your</td><td class="example"><strong>Your</strong> bag is here. — <em>Tu</em> bolsa está aquí.</td></tr>
+        <tr><td class="pronoun">He</td><td class="adj">his</td><td class="example"><strong>His</strong> name is Carlos. — <em>Su</em> nombre es Carlos.</td></tr>
+        <tr><td class="pronoun">She</td><td class="adj">her</td><td class="example"><strong>Her</strong> office is big. — <em>Su</em> oficina es grande.</td></tr>
+        <tr><td class="pronoun">It</td><td class="adj">its</td><td class="example">The dog wags <strong>its</strong> tail. — El perro mueve <em>su</em> cola.</td></tr>
+        <tr><td class="pronoun">We</td><td class="adj">our</td><td class="example"><strong>Our</strong> class starts at 9. — <em>Nuestra</em> clase empieza a las 9.</td></tr>
+        <tr><td class="pronoun">They</td><td class="adj">their</td><td class="example"><strong>Their</strong> kids are funny. — <em>Sus</em> hijos son graciosos.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ITS vs IT'S -->
+  <div class="card red-border">
+    <h2>⚠️ The Big Confusion: <span style="color:var(--teal)">its</span> vs <span style="color:var(--red)">it's</span></h2>
+
+    <div class="compare-box">
+      <div class="compare-item its-adj">
+        <div class="big">its</div>
+        <div class="label">🔒 Possession / Posesión</div>
+        <div class="meaning"><em>= "su" — pertenece a algo o a un animal</em></div>
+      </div>
+      <div class="compare-item its-contr">
+        <div class="big">it's</div>
+        <div class="label">🔗 Contraction / Contracción</div>
+        <div class="meaning"><em>= "it is" o "it has" — siempre se puede expandir</em></div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px;">
+      <h3 style="color:var(--red); margin-bottom:12px;">🤔 How do I know which one to use? / ¿Cómo sé cuál usar?</h3>
+
+      <div style="background:#fff5f5; border-radius:10px; padding:14px; margin-bottom:12px; border-left:4px solid var(--red);">
+        <div style="font-weight:900; color:var(--red); margin-bottom:6px;">Use <span style="font-size:1.2em;">it's</span> when you mean "It is..." or "It has..."</div>
+        <div class="es" style="margin-bottom:10px;"><em>Usa it's cuando quieres decir "Es..." o "Ha..."</em></div>
+        <div style="display:grid; gap:8px;">
+          <div style="background:white; border-radius:8px; padding:10px 12px;">
+            🌤️ <strong>"Es un día hermoso."</strong><br>
+            → <span style="color:var(--red); font-weight:800;">It's</span> a beautiful day. <span style="color:var(--gray); font-size:0.85rem;">(= It <u>is</u> a beautiful day)</span>
+          </div>
+          <div style="background:white; border-radius:8px; padding:10px 12px;">
+            📚 <strong>"Es un libro increíble."</strong><br>
+            → <span style="color:var(--red); font-weight:800;">It's</span> an amazing book. <span style="color:var(--gray); font-size:0.85rem;">(= It <u>is</u> an amazing book)</span>
+          </div>
+          <div style="background:white; border-radius:8px; padding:10px 12px;">
+            ⏰ <strong>"Son las 3 de la tarde."</strong><br>
+            → <span style="color:var(--red); font-weight:800;">It's</span> 3 PM. <span style="color:var(--gray); font-size:0.85rem;">(= It <u>is</u> 3 PM)</span>
+          </div>
+          <div style="background:white; border-radius:8px; padding:10px 12px;">
+            🥶 <strong>"Hace frío hoy."</strong><br>
+            → <span style="color:var(--red); font-weight:800;">It's</span> cold today. <span style="color:var(--gray); font-size:0.85rem;">(= It <u>is</u> cold today)</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#f0faf8; border-radius:10px; padding:14px; margin-bottom:12px; border-left:4px solid var(--teal);">
+        <div style="font-weight:900; color:var(--teal); margin-bottom:6px;">Use <span style="font-size:1.2em;">its</span> when something belongs to it</div>
+        <div class="es" style="margin-bottom:10px;"><em>Usa its cuando algo le pertenece a una cosa o animal (= "su")</em></div>
+        <div style="display:grid; gap:8px;">
+          <div style="background:white; border-radius:8px; padding:10px 12px;">
+            📖 <strong>"Sus páginas son interesantes."</strong><br>
+            → <span style="color:var(--teal); font-weight:800;">Its</span> pages are interesting. <span style="color:var(--gray); font-size:0.85rem;">(pages belong to the book)</span>
+          </div>
+          <div style="background:white; border-radius:8px; padding:10px 12px;">
+            🐶 <strong>"Su cola es muy larga."</strong><br>
+            → <span style="color:var(--teal); font-weight:800;">Its</span> tail is very long. <span style="color:var(--gray); font-size:0.85rem;">(the tail belongs to the dog)</span>
+          </div>
+          <div style="background:white; border-radius:8px; padding:10px 12px;">
+            🏢 <strong>"Su nombre es muy famoso."</strong> (hablando de una empresa)<br>
+            → <span style="color:var(--teal); font-weight:800;">Its</span> name is very famous. <span style="color:var(--gray); font-size:0.85rem;">(the name belongs to the company)</span>
+          </div>
+          <div style="background:white; border-radius:8px; padding:10px 12px;">
+            📱 <strong>"Su pantalla está rota."</strong> (hablando del teléfono)<br>
+            → <span style="color:var(--teal); font-weight:800;">Its</span> screen is broken. <span style="color:var(--gray); font-size:0.85rem;">(the screen belongs to the phone)</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff0e0;border:2px solid var(--yellow);border-radius:10px;padding:14px 16px;margin-bottom:14px;">
+        <h4 style="color:#c97000;margin-bottom:8px;">⚠️ Quick Note / Nota rápida: <em>it has</em></h4>
+        <p style="font-size:0.95rem;">You may also see <strong>it's</strong> as a contraction of <strong>"it has"</strong> — for example: <em>"It's been a long day."</em> (= It <u>has</u> been a long day.)</p>
+        <p class="es" style="margin-top:6px;"><em>También puedes ver it's como contracción de "it has" — por ejemplo: "Ha sido un día largo."</em></p>
+        <p style="margin-top:8px;font-size:0.9rem;color:var(--gray);">📌 This belongs to the <strong>Present Perfect</strong> tense — a verb tense we will study later! For now, just remember: if you can replace <em>it's</em> with <em>"it has"</em> and it makes sense, it's still a contraction (with apostrophe ✅).</p>
+        <p class="es" style="font-size:0.88rem;color:var(--gray);"><em>Esto pertenece al tiempo verbal <strong>Present Perfect</strong> — ¡un tiempo que estudiaremos más adelante! Por ahora, recuerda: si puedes reemplazar it's con "it has" y tiene sentido, sigue siendo una contracción (con apóstrofe ✅).</em></p>
+      </div>
+      <div class="accent-note">
+        <h4>🔑 The Golden Test / La prueba de oro</h4>
+        <p>Replace <strong>it's / its</strong> with <strong>"it is"</strong>. Does the sentence still make sense?</p>
+        <p class="es"><em>Reemplaza it's / its con "it is". ¿La oración sigue teniendo sentido?</em></p>
+        <div style="margin-top:10px; display:grid; gap:8px;">
+          <div style="background:white; border-radius:8px; padding:10px 12px; border-left:3px solid var(--green);">
+            ✅ "<strong>It's</strong> cold." → "It <u>is</u> cold." ✔️ Makes sense → use <strong>it's</strong>
+          </div>
+          <div style="background:white; border-radius:8px; padding:10px 12px; border-left:3px solid var(--red);">
+            ❌ "The dog wags <strong>its</strong> tail." → "The dog wags it <u>is</u> tail." ✖️ Doesn't make sense → use <strong>its</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card yellow-border">
+    <h2>💡 Common Mistakes to Avoid</h2>
+    <table class="pa-table">
+      <thead><tr><th>❌ Wrong</th><th>✅ Correct</th><th>Why / Por qué</th></tr></thead>
+      <tbody>
+        <tr><td>She lost <span style="color:var(--red)">hers</span> keys.</td><td>She lost <span style="color:var(--teal)">her</span> keys.</td><td>"hers" is a possessive pronoun, not adjective</td></tr>
+        <tr><td><span style="color:var(--red)">It's</span> color is red.</td><td><span style="color:var(--teal)">Its</span> color is red.</td><td>No apostrophe for possession</td></tr>
+        <tr><td><span style="color:var(--red)">Their</span> are nice.</td><td><span style="color:var(--teal)">They are</span> nice. / <span style="color:var(--teal)">Their</span> car is nice.</td><td>their needs a noun after it</td></tr>
+        <tr><td>I love <span style="color:var(--red)">my's</span> job.</td><td>I love <span style="color:var(--teal)">my</span> job.</td><td>Never add 's to possessive adjectives</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TAB 2 · FILL IN THE BLANK (10)
+══════════════════════════════════════════════ -->
+<section id="fill" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">✏️</div>
+    <h2>Fill in the Blank</h2>
+    <p>Complete the sentences with the correct possessive adjective.</p>
+    <p class="es">Completa las oraciones con el adjetivo posesivo correcto.</p>
+  </div>
+  <div class="card" id="fill-card">
+    <div class="ex-intro">💬 Type the correct possessive adjective in each blank. / Escribe el adjetivo posesivo correcto en cada espacio.</div>
+    <div class="progress-dots" id="fill-dots"></div>
+    <div id="fill-questions"></div>
+    <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+      <button class="check-btn" onclick="checkFill()">📤 Submit All / Enviar todo</button>
+      <button class="answer-btn" onclick="revealAllFill()" style="background:var(--gray);">👁️ Show All Answers</button>
+    </div>
+    <div id="fill-results" class="results-panel" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TAB 3 · ERROR IDENTIFICATION (10)
+══════════════════════════════════════════════ -->
+<section id="errors" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🔍</div>
+    <h2>Spot the Error</h2>
+    <p>Find the wrong word — then type only the corrected word. (50 exercises)</p>
+    <p class="es">Encuentra la palabra incorrecta — luego escribe <strong>solo esa palabra corregida</strong>.</p>
+  </div>
+  <div class="card" id="err-card">
+    <div class="ex-intro" style="background:#fff3cd; border:1px solid #ffc107; border-radius:10px; padding:14px 16px; color:#856404;">
+      ✏️ <strong>How to answer:</strong> Each sentence has <strong>one wrong word</strong> (underlined in red). Just type the <strong>correct word</strong> in the box — not the full sentence!<br>
+      <span style="font-style:italic; font-size:0.9rem;">Cómo responder: Cada oración tiene <strong>una palabra incorrecta</strong> (subrayada en rojo). Escribe solo <strong>la palabra correcta</strong> en el cuadro — ¡no la oración completa!</span><br><br>
+      <strong>Example / Ejemplo:</strong><br>
+      ❌ <em>"The cat licks <u>it's</u> paws."</em> → You write: <strong style="color:var(--teal);">its</strong>
+    </div>
+    <div class="progress-dots" id="err-dots"></div>
+    <div id="err-questions"></div>
+    <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="check-btn" onclick="submitAllErrors()">📤 Submit All / Enviar todo</button>
+      <button class="answer-btn" onclick="revealAllErrors()" style="background:var(--gray);">👁️ Show All Answers</button>
+    </div>
+    <div id="err-results" class="results-panel" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TAB 4 · MULTIPLE CHOICE (10)
+══════════════════════════════════════════════ -->
+<section id="mc" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🎯</div>
+    <h2>Multiple Choice</h2>
+    <p>Choose the correct possessive adjective for each sentence. (40 exercises)</p>
+    <p class="es">Elige el adjetivo posesivo correcto para cada oración.</p>
+  </div>
+  <div class="card">
+    <div class="ex-intro">🎯 Select the best option. / Selecciona la mejor opción.</div>
+    <div class="progress-dots" id="mc-dots"></div>
+    <div id="mc-questions"></div>
+    <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="check-btn" onclick="submitAllMC()">📤 Submit All / Enviar todo</button>
+      <button class="answer-btn" onclick="revealAllMC()" style="background:var(--gray);">👁️ Show All Answers</button>
+    </div>
+    <div id="mc-results" class="results-panel" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TAB 5 · STORY (cloze)
+══════════════════════════════════════════════ -->
+<section id="story" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">📖</div>
+    <h2>A Crazy Monday at the Office</h2>
+    <p>Choose the correct option to complete the story. Simple Present.</p>
+    <p class="es">Elige la opción correcta para completar la historia. Presente Simple.</p>
+  </div>
+  <div class="card purple-border">
+    <div class="ex-intro">📝 Select the correct word in each dropdown. / Selecciona la palabra correcta en cada menú.</div>
+    <div class="story-text" id="story-text"></div>
+    <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="check-btn" onclick="checkStory()">📤 Submit Story / Enviar historia</button>
+      <button class="answer-btn" onclick="revealStory()">👁️ Show Answers / Ver respuestas</button>
+      <button class="hint-btn" id="es-toggle-btn" onclick="toggleStorySpanish()" style="background:#e8f0fe; border-color:#4285f4; color:#4285f4;">🇪🇸 Ver en español</button>
+    </div>
+    <div id="story-spanish" style="display:none; margin-top:16px; background:#f0faf8; border-radius:10px; padding:16px; border-left:4px solid var(--teal); font-size:1rem; line-height:2;"></div>
+    <div id="story-results" class="results-panel" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TAB 6 · SPEAKING (7 questions)
+══════════════════════════════════════════════ -->
+<section id="speaking" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🗣️</div>
+    <h2>Speaking Practice</h2>
+    <p>Answer these questions out loud using possessive adjectives!</p>
+    <p class="es">¡Responde estas preguntas en voz alta usando adjetivos posesivos!</p>
+  </div>
+  <div class="card yellow-border">
+    <div class="ex-intro">🎙️ Speak your answer, then tap "See sample" to compare. / Habla tu respuesta y luego toca "Ver ejemplo" para comparar.</div>
+    <div id="speaking-questions"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TAB 7 · ALPHABET
+══════════════════════════════════════════════ -->
+<section id="alphabet" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🔤</div>
+    <h2>The Alphabet / El Abecedario</h2>
+    <p>26 letters · pronunciación clara · spelling practice</p>
+  </div>
+
+  <!-- Reference -->
+  <div class="card">
+    <h2>📋 The 26 Letters with Pronunciation</h2>
+    <p class="es" style="margin-bottom:12px;"><em>Vowels in red (vocal) · Consonants in blue (consonante) · Pronunciation written in Spanish approximation</em></p>
+    <div class="alphabet-grid" id="alpha-grid"></div>
+  </div>
+
+  <!-- British vs American -->
+  <div class="card yellow-border">
+    <h2>🇺🇸 vs 🇬🇧 American vs British</h2>
+    <p>One letter sounds different depending on the variety of English:</p>
+    <p class="es"><em>Una letra suena diferente dependiendo de la variedad del inglés:</em></p>
+    <table class="pa-table" style="margin-top:12px;">
+      <thead><tr><th>Letter</th><th>🇺🇸 American</th><th>🇬🇧 British</th></tr></thead>
+      <tbody>
+        <tr><td style="font-family:'Fredoka One',cursive; font-size:1.3rem; color:var(--blue);">Z</td><td style="color:var(--teal); font-weight:800;">zí</td><td style="color:var(--purple); font-weight:800;">zet</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Accent marks note -->
+  <div class="card blue-border">
+    <h2>📌 Accent Marks in English / Tildes en inglés</h2>
+    <p>English <strong>doesn't normally use accent marks</strong>. When spelling a name or word that has one, we <em>describe</em> it:</p>
+    <p class="es"><em>El inglés <strong>normalmente no usa tildes</strong>. Cuando deletreamos un nombre que tiene una, la describimos:</em></p>
+    <div class="accent-note" style="margin-top:12px;">
+      <h4>📖 Types of accent marks / Tipos de tildes</h4>
+      <div style="margin-bottom:8px;">
+        <span class="accent-type">Acute ( ´ )</span> → "There's an acute accent mark on the i."<br>
+        <span class="es">"Hay una tilde aguda en la i."</span>
+      </div>
+      <div>
+        <span class="accent-type">Grave ( ` )</span> → "There's a grave accent mark on the e."<br>
+        <span class="es">"Hay una tilde grave en la e."</span>
+      </div>
+    </div>
+    <h3 style="margin-top:14px;">💬 Real examples</h3>
+    <p>• "It's spelled <strong>Pernía</strong> — with an acute accent mark on the i."</p>
+    <p>• "It's spelled <strong>Trèvoux</strong> — with a grave accent mark on the e."</p>
+    <p class="es"><em>• "Se escribe Pernía — con tilde aguda en la i." &nbsp; • "Se escribe Trèvoux — con tilde grave en la e."</em></p>
+  </div>
+
+  <!-- Spelling questions reference -->
+  <div class="card">
+    <h2>🤔 The Question: How do you spell...?</h2>
+    <p><strong>How do you spell ___?</strong> = ¿Cómo se escribe ___? / ¿Cómo se deletrea ___?</p>
+    <p style="margin-top:8px;"><strong>Your first name?</strong> → How do you spell your first name?</p>
+    <p><strong>Your last name?</strong> → How do you spell your last name?</p>
+    <p class="es"><em>Primero practicamos deletrear tu propio nombre. ¡Es lo más útil!</em></p>
+  </div>
+
+  <!-- Spell vs Spelling side note -->
+  <div class="card yellow-border">
+    <h2>📌 "Spell" vs "Spelling" — What's the difference?</h2>
+    <table class="pa-table" style="margin-top:10px;">
+      <thead><tr><th>Word</th><th>Use</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:800; color:var(--teal);">to spell <span style="font-size:0.78rem; color:var(--gray);">(verb)</span></td>
+          <td>Action — to say or write the letters of a word<br><span class="es"><em>Deletrear — la acción de decir o escribir las letras</em></span></td>
+          <td>"How do you <strong>spell</strong> your name?" / "Can you <strong>spell</strong> that for me?"<br><span class="es"><em>"¿Cómo se deletrea tu nombre?"</em></span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:800; color:var(--red);">spelling <span style="font-size:0.78rem; color:var(--gray);">(noun/adjective)</span></td>
+          <td>The way a word is written / The correct set of letters<br><span class="es"><em>La ortografía / La forma en que se escribe una palabra</em></span></td>
+          <td>"Check your <strong>spelling</strong>." / "That's a common <strong>spelling</strong> mistake."<br><span class="es"><em>"Revisa tu ortografía."</em></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="accent-note" style="margin-top:12px;">
+      <h4>💡 Quick rule / Regla rápida</h4>
+      <p>Use <strong>spell</strong> when talking about the action: <em>"Can you spell it?"</em><br>
+      Use <strong>spelling</strong> when talking about the result or the subject: <em>"My spelling is improving!"</em></p>
+      <p class="es"><em>Usa <strong>spell</strong> para la acción: "¿Puedes deletrearlo?" · Usa <strong>spelling</strong> para el resultado o el tema: "¡Mi ortografía está mejorando!"</em></p>
+    </div>
+  </div>
+
+  <!-- Spelling exercises -->
+  <div class="card red-border">
+    <h2>✏️ Spelling Exercises / Ejercicios de Deletreo</h2>
+    <div class="ex-intro">🔤 Type how you would spell each word letter by letter (e.g.: C-U-P). Then submit! / Escribe cómo deletrearías cada palabra, letra por letra. ¡Luego envía!</div>
+    <div id="spell-questions"></div>
+    <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="check-btn" onclick="submitAllSpell()">📤 Submit All / Enviar todo</button>
+      <button class="answer-btn" onclick="revealAllSpell()" style="background:var(--gray);">👁️ Show All Answers</button>
+    </div>
+    <div id="spell-results" class="results-panel" style="display:none;"></div>
+  </div>
+</section>
+
+
+
+<script>
+'use strict';
+
+// ── ALPHABET DATA ──────────────────────────────────────
+const ALPHABET = [
+  {l:'A',p:'éi',vowel:true},{l:'B',p:'bí',vowel:false},{l:'C',p:'sí',vowel:false},
+  {l:'D',p:'dí',vowel:false},{l:'E',p:'í',vowel:true},{l:'F',p:'éf',vowel:false},
+  {l:'G',p:'yi',vowel:false},{l:'H',p:'éich',vowel:false},{l:'I',p:'ái',vowel:true},
+  {l:'J',p:'yéi',vowel:false},{l:'K',p:'kéi',vowel:false},{l:'L',p:'él',vowel:false},
+  {l:'M',p:'ém',vowel:false},{l:'N',p:'én',vowel:false},{l:'O',p:'óu',vowel:true},
+  {l:'P',p:'pí',vowel:false},{l:'Q',p:'kíu',vowel:false},{l:'R',p:'ar',vowel:false},
+  {l:'S',p:'és',vowel:false},{l:'T',p:'tí',vowel:false},{l:'U',p:'iú',vowel:true},
+  {l:'V',p:'ví',vowel:false},{l:'W',p:'dábol-iú',vowel:false},{l:'X',p:'ex',vowel:false},
+  {l:'Y',p:'uái',vowel:false},{l:'Z',p:'zí / zet',vowel:false}
+];
+
+// ── FILL IN THE BLANK ──────────────────────────────────
+const fillData = [
+  {sentence:['Carlos lives with','','parents in Medellín.'],blank:1,answer:'his',hint:'Carlos = he → ___',es:'Carlos vive con ___ padres en Medellín.'},
+  {sentence:['The dog loves','','food bowl.'],blank:1,answer:'its',hint:'The dog = it → ___ (no apostrophe!)',es:'El perro ama ___ plato de comida.'},
+  {sentence:['We forgot','','umbrellas at home.'],blank:1,answer:'our',hint:'We → ___',es:'Olvidamos ___ paraguas en casa.'},
+  {sentence:['','','great that you are here!'],blank:1,answer:"it's",hint:'"It is great" → use the contraction',es:'___ excelente que estés aquí.'},
+  {sentence:['Ana and Sofia call','','mom every Sunday.'],blank:1,answer:'their',hint:'Ana and Sofia = they → ___',es:'Ana y Sofía llaman a ___ mamá cada domingo.'},
+  {sentence:['Is this','','jacket? It looks great on you!'],blank:1,answer:'your',hint:'Talking to one person → ___',es:'¿Es esta ___ chaqueta? ¡Te queda genial!'},
+  {sentence:['Maria loves','','new job at the hospital.'],blank:1,answer:'her',hint:'Maria = she → ___',es:'María ama ___ nuevo trabajo en el hospital.'},
+  {sentence:['I always keep','','phone charged.'],blank:1,answer:'my',hint:'I → ___',es:'Siempre mantengo ___ teléfono cargado.'},
+  {sentence:['The company lost','','best employee last month.'],blank:1,answer:'its',hint:'The company = it → ___ (possessive, no apostrophe)',es:'La empresa perdió a ___ mejor empleado el mes pasado.'},
+  {sentence:['David and I love','','neighborhood.'],blank:1,answer:'our',hint:'David and I = we → ___',es:'A David y a mí nos encanta ___ vecindario.'}
+];
+
+// ── ERROR IDENTIFICATION ────────────────────────────────
+const errData = [
+  // ── its vs it's (30 items) ──
+  {sentence:"The dog wags it's tail happily.",wrong:"it's",correct:"its",hint:"Try replacing the underlined word with 'it is'. Does the sentence still make sense?",es:"El perro mueve su cola felizmente."},
+  {sentence:"Its a really cold morning today.",wrong:"Its",correct:"It's",hint:"Can you expand the underlined word into two words? Try 'It is...' — does it work here?",es:"Es una mañana muy fría hoy."},
+  {sentence:"The phone lost it's screen protector.",wrong:"it's",correct:"its",hint:"Ask yourself: does the screen protector belong to the phone? Then which form shows possession?",es:"El teléfono perdió su protector de pantalla."},
+  {sentence:"Its very important to study every day.",wrong:"Its",correct:"It's",hint:"Try saying the sentence out loud with 'It is' instead. Does it sound right?",es:"Es muy importante estudiar todos los días."},
+  {sentence:"The company changes it's logo every year.",wrong:"it's",correct:"its",hint:"Does the logo belong to the company? Think about which form we use to show something belongs to 'it'.",es:"La empresa cambia su logo cada año."},
+  {sentence:"Its been a long and tiring week.",wrong:"Its",correct:"It's",hint:"Try expanding: 'It ___ been a long week.' Which verb fits — 'is' or 'has'? Can you contract that?",es:"Ha sido una semana larga y cansada."},
+  {sentence:"The cat eats from it's bowl every morning.",wrong:"it's",correct:"its",hint:"Who does the bowl belong to? Now, which form of 'its/it's' shows ownership — not a contraction?",es:"El gato come de su plato cada mañana."},
+  {sentence:"Its always sunny in this city.",wrong:"Its",correct:"It's",hint:"Read the sentence replacing the underlined word with 'It is'. How does it sound?",es:"Siempre hace sol en esta ciudad."},
+  {sentence:"The car needs it's oil changed.",wrong:"it's",correct:"its",hint:"Is 'it is oil' a phrase that makes sense? What does that tell you about which form to use?",es:"El carro necesita cambiar su aceite."},
+  {sentence:"Its a great idea to review your notes.",wrong:"Its",correct:"It's",hint:"What two words could you use instead of the underlined word at the start of this sentence?",es:"Es una gran idea revisar tus apuntes."},
+  {sentence:"The team celebrates it's victory every Friday.",wrong:"it's",correct:"its",hint:"Does the victory belong to the team? Which form shows that something belongs to 'it'?",es:"El equipo celebra su victoria cada viernes."},
+  {sentence:"Its easy to learn English with practice.",wrong:"Its",correct:"It's",hint:"Say 'It is easy to learn English' — does that work? What contraction could replace those two words?",es:"Es fácil aprender inglés con práctica."},
+  {sentence:"The book has it's own unique style.",wrong:"it's",correct:"its",hint:"Try 'it is own unique style' — does that phrase make sense to you?",es:"El libro tiene su propio estilo único."},
+  {sentence:"Its not a good day to go to the beach.",wrong:"Its",correct:"It's",hint:"What two words is the underlined word trying to say here? Can you say them out loud?",es:"No es un buen día para ir a la playa."},
+  {sentence:"The restaurant is famous for it's pizza.",wrong:"it's",correct:"its",hint:"Does the pizza belong to the restaurant? Think: possession or contraction?",es:"El restaurante es famoso por su pizza."},
+  {sentence:"Its normal to feel nervous before a test.",wrong:"Its",correct:"It's",hint:"Replace the underlined word with 'It is'. Read the sentence — does that sound natural?",es:"Es normal sentirse nervioso antes de un examen."},
+  {sentence:"The store closes it's doors at 9 PM.",wrong:"it's",correct:"its",hint:"Whose doors are they? Ask yourself: am I talking about possession or a contraction here?",es:"La tienda cierra sus puertas a las 9 PM."},
+  {sentence:"Its Monday and the office is already busy.",wrong:"Its",correct:"It's",hint:"Think about how you say the day of the week in English. What two words start that kind of sentence?",es:"Es lunes y la oficina ya está ocupada."},
+  {sentence:"The plant needs it's leaves cleaned.",wrong:"it's",correct:"its",hint:"Do the leaves belong to the plant? Which form — with or without apostrophe — shows that?",es:"La planta necesita limpiar sus hojas."},
+  {sentence:"Its funny how fast time goes.",wrong:"Its",correct:"It's",hint:"Try saying 'It is funny how fast time goes.' Does that sentence work?",es:"Es gracioso qué rápido pasa el tiempo."},
+  {sentence:"The movie is great but it's ending is sad.",wrong:"it's",correct:"its",hint:"Try 'it is ending is sad' — does that phrase make grammatical sense?",es:"La película es genial pero su final es triste."},
+  {sentence:"Its 8 o'clock and class starts now.",wrong:"Its",correct:"It's",hint:"How do we normally express the time in English? What two words begin that sentence?",es:"Son las 8 en punto y la clase empieza ahora."},
+  {sentence:"The website updates it's content daily.",wrong:"it's",correct:"its",hint:"Does the content belong to the website? Possession or contraction — which one fits?",es:"El sitio web actualiza su contenido a diario."},
+  {sentence:"Its true that coffee helps in the morning.",wrong:"Its",correct:"It's",hint:"Read: 'It is true that coffee helps.' Does that sentence make sense? What can you do with those two words?",es:"Es verdad que el café ayuda en la mañana."},
+  {sentence:"The school opens it's library on weekends.",wrong:"it's",correct:"its",hint:"Whose library is it? Is this sentence about ownership or about expanding two words into one?",es:"La escuela abre su biblioteca los fines de semana."},
+  {sentence:"Its a pleasure to meet you.",wrong:"Its",correct:"It's",hint:"What two words could replace the underlined word at the start? Say them out loud.",es:"Es un placer conocerte."},
+  {sentence:"The computer runs slow because of it's age.",wrong:"it's",correct:"its",hint:"Does the age belong to the computer? Ask: possession or contraction?",es:"El computador va lento por su antigüedad."},
+  {sentence:"Its important to drink water every day.",wrong:"Its",correct:"It's",hint:"Say the sentence with 'It is' instead of the underlined word. Does it work naturally?",es:"Es importante tomar agua todos los días."},
+  {sentence:"The song is popular because of it's rhythm.",wrong:"it's",correct:"its",hint:"Does the rhythm belong to the song? Think about which form expresses that.",es:"La canción es popular por su ritmo."},
+  {sentence:"Its 2025 and everything changes so fast.",wrong:"Its",correct:"It's",hint:"How do we say the year in English? What two words would naturally start this sentence?",es:"Es 2025 y todo cambia tan rápido."},
+  // ── Other possessives (20 items) ──
+  {sentence:"She always forgets hers lunch at home.",wrong:"hers",correct:"her",hint:"Look at the underlined word — it comes before a noun. Do possessive adjectives before nouns end in 's'?",es:"Ella siempre olvida su almuerzo en casa."},
+  {sentence:"My brother drives he car to work every day.",wrong:"he",correct:"his",hint:"The underlined word is a subject pronoun. What is the possessive form of that pronoun?",es:"Mi hermano maneja su carro al trabajo todos los días."},
+  {sentence:"We love ours neighborhood very much.",wrong:"ours",correct:"our",hint:"The underlined word comes right before a noun. Which shorter form of this word goes before nouns?",es:"Amamos mucho nuestro vecindario."},
+  {sentence:"They always do theirs homework after dinner.",wrong:"theirs",correct:"their",hint:"Before a noun like 'homework', do we use the longer or shorter form of this possessive?",es:"Siempre hacen su tarea después de cenar."},
+  {sentence:"Is this you bag on the table?",wrong:"you",correct:"your",hint:"The underlined word is a pronoun. What is its possessive adjective form?",es:"¿Es esta tu bolsa en la mesa?"},
+  {sentence:"Maria loves she job at the hospital.",wrong:"she",correct:"her",hint:"The underlined word is a subject pronoun. What possessive adjective comes from it?",es:"María ama su trabajo en el hospital."},
+  {sentence:"I always keep I phone charged.",wrong:"I",correct:"my",hint:"The underlined word is a subject pronoun. What is the possessive adjective for this pronoun?",es:"Siempre mantengo mi teléfono cargado."},
+  {sentence:"The students do theirs projects on Fridays.",wrong:"theirs",correct:"their",hint:"'Theirs' vs 'their' — which one goes directly before a noun?",es:"Los estudiantes hacen sus proyectos los viernes."},
+  {sentence:"Carlos parks he car near the office.",wrong:"he",correct:"his",hint:"The underlined word is used as a subject. What form of this word shows possession?",es:"Carlos estaciona su carro cerca de la oficina."},
+  {sentence:"We always bring we lunch to the office.",wrong:"we",correct:"our",hint:"'We' is a subject pronoun. What possessive adjective replaces it before a noun?",es:"Siempre traemos nuestro almuerzo a la oficina."},
+  {sentence:"You sister calls every Sunday morning.",wrong:"You",correct:"Your",hint:"The underlined word is a pronoun. What is its possessive form that goes before nouns?",es:"Tu hermana llama cada domingo por la mañana."},
+  {sentence:"She drinks hers coffee with two sugars.",wrong:"hers",correct:"her",hint:"Look at the word after the underlined one — it's a noun. Which form goes before a noun?",es:"Ella toma su café con dos azúcares."},
+  {sentence:"My parents love theirs garden in spring.",wrong:"theirs",correct:"their",hint:"'Theirs' and 'their' look similar. Which one is a possessive adjective that goes before a noun?",es:"Mis padres aman su jardín en primavera."},
+  {sentence:"He reads he emails first thing in the morning.",wrong:"he",correct:"his",hint:"The underlined word appears before a noun. Is a subject pronoun the right form to use there?",es:"Él lee sus correos lo primero en la mañana."},
+  {sentence:"We exercise in we free time.",wrong:"we",correct:"our",hint:"'We' is a subject pronoun. What is the possessive adjective version of 'we'?",es:"Hacemos ejercicio en nuestro tiempo libre."},
+  {sentence:"She checks her messages and reply to hers boss.",wrong:"hers",correct:"her",hint:"The underlined word is before a noun ('boss'). Which form — 'her' or 'hers' — goes before a noun?",es:"Ella revisa sus mensajes y le responde a su jefe."},
+  {sentence:"I talk to my teacher about I progress.",wrong:"I",correct:"my",hint:"The underlined word comes before 'progress'. What possessive adjective replaces 'I' before a noun?",es:"Hablo con mi profesora sobre mi progreso."},
+  {sentence:"They visit theirs grandparents every Christmas.",wrong:"theirs",correct:"their",hint:"Before a noun like 'grandparents', do we use 'their' or 'theirs'? Think about the pattern.",es:"Ellos visitan a sus abuelos cada Navidad."},
+  {sentence:"He finishes he work before 5 PM.",wrong:"he",correct:"his",hint:"The underlined word is next to a noun. Is 'he' a subject pronoun or a possessive adjective?",es:"Él termina su trabajo antes de las 5 PM."},
+  {sentence:"She teaches hers students with a lot of patience.",wrong:"hers",correct:"her",hint:"'Students' is a noun right after the underlined word. Which form — 'her' or 'hers' — belongs before a noun?",es:"Ella enseña a sus estudiantes con mucha paciencia."}
+];
+// ── MULTIPLE CHOICE ─────────────────────────────────────
+const mcData = [
+  // ── its vs it's (30 items) ──
+  {sentence:"___ a great day to learn English!",options:["It's","Its","Its'","It"],answer:"It's",hint:"'It is a great day' ✅ → use it's",es:"¡___ un gran día para aprender inglés!"},
+  {sentence:"The book is famous because of ___ story.",options:["its","it's","it","his"],answer:"its",hint:"'it is story' ❌ → the story belongs to the book → use its",es:"El libro es famoso por ___ historia."},
+  {sentence:"___ been raining since this morning.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It has been raining' ✅ → It's = it has → use it's",es:"Ha estado lloviendo desde esta mañana."},
+  {sentence:"The cat always sleeps in ___ favorite spot.",options:["its","it's","his","her"],answer:"its",hint:"'it is favorite spot' ❌ → the spot belongs to the cat → use its",es:"El gato siempre duerme en ___ lugar favorito."},
+  {sentence:"___ really important to practice speaking.",options:["It's","Its","It is a","Its'"],answer:"It's",hint:"'It is really important' ✅ → use it's",es:"Es muy importante practicar el habla."},
+  {sentence:"The company updates ___ website every Monday.",options:["its","it's","their","his"],answer:"its",hint:"'it is website' ❌ → the website belongs to the company → use its",es:"La empresa actualiza ___ sitio web cada lunes."},
+  {sentence:"___ cold outside — take a jacket.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is cold outside' ✅ → use it's",es:"Hace frío afuera — lleva una chaqueta."},
+  {sentence:"The movie is boring because ___ story is weak.",options:["its","it's","it","their"],answer:"its",hint:"'it is story is weak' ❌ → the story belongs to the movie → use its",es:"La película es aburrida porque ___ historia es débil."},
+  {sentence:"___ Monday and the week starts now.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is Monday' ✅ → use it's",es:"Es lunes y la semana empieza ahora."},
+  {sentence:"The plant drops ___ leaves in autumn.",options:["its","it's","their","his"],answer:"its",hint:"'it is leaves' ❌ → the leaves belong to the plant → use its",es:"La planta pierde ___ hojas en otoño."},
+  {sentence:"___ not easy to wake up early every day.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is not easy' ✅ → use it's",es:"No es fácil despertarse temprano todos los días."},
+  {sentence:"The school is known for ___ great teachers.",options:["its","it's","their","his"],answer:"its",hint:"'it is great teachers' ❌ → the teachers belong to the school → use its",es:"La escuela es conocida por ___ excelentes profesores."},
+  {sentence:"___ 7 AM and the city is already awake.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is 7 AM' ✅ → use it's for time",es:"Son las 7 AM y la ciudad ya está despierta."},
+  {sentence:"The dog wags ___ tail when it is happy.",options:["its","it's","his","their"],answer:"its",hint:"'it is tail' ❌ → the tail belongs to the dog → use its",es:"El perro mueve ___ cola cuando está feliz."},
+  {sentence:"___ true that practice makes perfect.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is true that practice makes perfect' ✅ → use it's",es:"Es verdad que la práctica hace al maestro."},
+  {sentence:"The phone shows ___ battery level on screen.",options:["its","it's","his","their"],answer:"its",hint:"'it is battery level' ❌ → the battery belongs to the phone → use its",es:"El teléfono muestra ___ nivel de batería en pantalla."},
+  {sentence:"___ a pleasure to work with you.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is a pleasure' ✅ → use it's",es:"Es un placer trabajar contigo."},
+  {sentence:"The restaurant is famous for ___ tacos.",options:["its","it's","their","his"],answer:"its",hint:"'it is tacos' ❌ → the tacos belong to the restaurant → use its",es:"El restaurante es famoso por ___ tacos."},
+  {sentence:"___ normal to make mistakes when learning.",options:["It's","Its","Its'","It"],answer:"It's",hint:"'It is normal to make mistakes' ✅ → use it's",es:"Es normal cometer errores cuando se aprende."},
+  {sentence:"The car needs ___ tires changed.",options:["its","it's","their","his"],answer:"its",hint:"'it is tires' ❌ → the tires belong to the car → use its",es:"El carro necesita cambiar ___ llantas."},
+  {sentence:"___ surprising how fast children learn.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is surprising' ✅ → use it's",es:"Es sorprendente qué tan rápido aprenden los niños."},
+  {sentence:"The song loses ___ popularity after a year.",options:["its","it's","their","his"],answer:"its",hint:"'it is popularity' ❌ → the popularity belongs to the song → use its",es:"La canción pierde ___ popularidad después de un año."},
+  {sentence:"___ okay to ask questions in class.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is okay to ask questions' ✅ → use it's",es:"Está bien hacer preguntas en clase."},
+  {sentence:"The gym opens ___ doors at 6 AM.",options:["its","it's","their","our"],answer:"its",hint:"'it is doors' ❌ → the doors belong to the gym → use its",es:"El gimnasio abre ___ puertas a las 6 AM."},
+  {sentence:"___ getting dark — let's go home.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is getting dark' ✅ → use it's",es:"Está oscureciendo — vámonos a casa."},
+  {sentence:"The computer saves ___ files automatically.",options:["its","it's","their","his"],answer:"its",hint:"'it is files' ❌ → the files belong to the computer → use its",es:"El computador guarda ___ archivos automáticamente."},
+  {sentence:"___ interesting to read about other cultures.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is interesting to read' ✅ → use it's",es:"Es interesante leer sobre otras culturas."},
+  {sentence:"The store changes ___ prices every season.",options:["its","it's","their","his"],answer:"its",hint:"'it is prices' ❌ → the prices belong to the store → use its",es:"La tienda cambia ___ precios cada temporada."},
+  {sentence:"___ difficult to find parking downtown.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is difficult to find parking' ✅ → use it's",es:"Es difícil encontrar estacionamiento en el centro."},
+  {sentence:"The app loses ___ users when it has bugs.",options:["its","it's","their","his"],answer:"its",hint:"'it is users' ❌ → the users belong to the app → use its",es:"La aplicación pierde ___ usuarios cuando tiene errores."},
+  // ── Other possessives (10 items) ──
+  {sentence:"Carlos always drinks ___ coffee black.",options:['his','him','he','hers'],answer:'his',hint:"Carlos = he → his (before a noun)",es:"Carlos siempre toma ___ café negro."},
+  {sentence:"Laura and Pedro do ___ homework together.",options:['their','theirs','them','they'],answer:'their',hint:"Laura and Pedro = they → their (before a noun)",es:"Laura y Pedro hacen ___ tarea juntos."},
+  {sentence:"Can I see ___ passport, please?",options:['your','yours','you','yore'],answer:'your',hint:"Talking to you → your (before a noun)",es:"¿Puedo ver ___ pasaporte, por favor?"},
+  {sentence:"Sofia loves ___ morning coffee routine.",options:['her','hers','she','his'],answer:'her',hint:"Sofia = she → her (before a noun)",es:"Sofía ama ___ rutina de café matutina."},
+  {sentence:"___ sister is a great teacher.",options:['My','Mine','Me','I'],answer:'My',hint:"I → My (before a noun)",es:"___ hermana es una gran maestra."},
+  {sentence:"We always clean ___ apartment on Sundays.",options:['our','ours','us','we'],answer:'our',hint:"We → our (before a noun)",es:"Siempre limpiamos ___ apartamento los domingos."},
+  {sentence:"He calls ___ mom every Sunday.",options:['his','him','he','hers'],answer:'his',hint:"He → his (before a noun)",es:"Él llama a ___ mamá cada domingo."},
+  {sentence:"She checks ___ emails every morning.",options:['her','hers','she','his'],answer:'her',hint:"She → her (before a noun)",es:"Ella revisa ___ correos cada mañana."},
+  {sentence:"They park ___ cars in the garage.",options:['their','theirs','them','they'],answer:'their',hint:"They → their (before a noun)",es:"Ellos estacionan ___ carros en el garaje."},
+  {sentence:"I always carry ___ notebook to class.",options:['my','mine','me','I'],answer:'my',hint:"I → my (before a noun)",es:"Siempre llevo ___ cuaderno a clase."}
+];
+
+// ── STORY ───────────────────────────────────────────────
+const storyRaw = `Meet Coco — the office plant. [Its/It's] a small green plant that lives on Sandra's desk. Everyone loves Coco because [its/it's] leaves are always shiny and bright. [Its/It's] clear that Sandra takes very good care of it.
+
+Every Monday, Sandra checks [its/it's] soil. If [its/it's] dry, she gives Coco some water. The plant always looks happy after [its/it's] drink. Sometimes Sandra talks to it — she says [its/it's] good for plants to hear a friendly voice.
+
+One day, Marcus decides to move Coco to [his/her] desk because he thinks [its/it's] too dark near Sandra's window. But Coco does not like [its/it's] new spot. [Its/It's] leaves start to turn yellow, and [its/it's] color becomes dull.
+
+Sandra notices immediately. "Marcus," she says, "[its/it's] not a good idea to move Coco. Look at [its/it's] leaves — they are sad!" Marcus feels bad. He returns Coco to [its/it's] original spot next to Sandra's computer.
+
+The next day, [its/it's] leaves are green again. [Its/It's] amazing how fast plants can recover! Now there is a little sign next to Coco. [Its/It's] message says: "Do not move me. I know where I belong. 🌿"`;
+
+const storyAnswers = ["It's","its","It's","its","its","its","it's","his","it's","its","Its","it's","its","its","it's","its","it's","Its","It's","Its","It's"];
+
+const storySpanish = `Conoce a Coco — la planta de la oficina. Es una pequeña planta verde que vive en el escritorio de Sandra. Todos aman a Coco porque sus hojas siempre están brillantes y verdes. Está claro que Sandra la cuida muy bien.
+
+Cada lunes, Sandra revisa su tierra. Si está seca, le da agua a Coco. La planta siempre se ve feliz después de tomar su agua. A veces Sandra le habla — ella dice que es bueno para las plantas escuchar una voz amigable.
+
+Un día, Marcus decide mover a Coco a su escritorio porque cree que está muy oscuro cerca de la ventana de Sandra. Pero a Coco no le gusta su nuevo lugar. Sus hojas empiezan a ponerse amarillas, y su color se vuelve opaco.
+
+Sandra lo nota de inmediato. "Marcus," dice ella, "no es una buena idea mover a Coco. ¡Mira sus hojas — están tristes!" Marcus se siente mal. Devuelve a Coco a su lugar original, al lado del computador de Sandra.
+
+Al día siguiente, sus hojas vuelven a estar verdes. ¡Es increíble qué tan rápido se pueden recuperar las plantas! Ahora hay un pequeño letrero al lado de Coco. Su mensaje dice: "No me muevas. Yo sé dónde pertenezco. 🌿"`;
+
+// ── SPEAKING ────────────────────────────────────────────
+const speakData = [
+  {q:"What is your favorite thing about your neighborhood?",hint:"Use: my, its, their...",sampleEn:"My neighborhood is very quiet. Its streets are safe and our neighbors are friendly.",sampleEs:"Mi vecindario es muy tranquilo. Sus calles son seguras y nuestros vecinos son amigables."},
+  {q:"Describe your best friend's personality.",hint:"Use: his / her...",sampleEn:"My best friend is very funny. Her laugh is contagious and her heart is huge.",sampleEs:"Mi mejor amiga es muy graciosa. Su risa es contagiosa y su corazón es enorme."},
+  {q:"Tell me about your daily routine.",hint:"Use: my, its...",sampleEn:"My morning routine starts at 6 AM. I love my quiet time before the day gets busy.",sampleEs:"Mi rutina matutina comienza a las 6 AM. Me encanta mi tiempo tranquilo antes de que el día se vuelva ocupado."},
+  {q:"What are your family's traditions?",hint:"Use: our, their, its...",sampleEn:"Our family loves Sunday lunch together. It's a tradition — everyone brings their favorite dish.",sampleEs:"A nuestra familia le encanta el almuerzo del domingo. Es una tradición — todos traen su plato favorito."},
+  {q:"Describe your dream job and its benefits.",hint:"Use: my, its, our...",sampleEn:"My dream job is to be a language coach. Its main benefit is helping people communicate better.",sampleEs:"Mi trabajo soñado es ser coach de idiomas. Su principal beneficio es ayudar a las personas a comunicarse mejor."},
+  {q:"Tell me about your city and its main attractions.",hint:"Use: its, our, my...",sampleEn:"My city is Medellín. Its transformation is incredible — our parks and its metro make it a great place to live.",sampleEs:"Mi ciudad es Medellín. Su transformación es increíble — nuestros parques y su metro la hacen un lugar genial."},
+  {q:"What is something special about your culture?",hint:"Use: our, its, my...",sampleEn:"Our culture is very warm and festive. Its music, food, and its people are what make it unique.",sampleEs:"Nuestra cultura es muy cálida y festiva. Su música, su comida y su gente son lo que la hacen única."}
+];
+
+// ── SPELLING ────────────────────────────────────────────
+const spellData = [
+  {word:"RHYTHM",spelling:"R-H-Y-T-H-M",hint:"No vowels! 6 letters. Starts with R.",note:"Pronounced: /RIZ-um/"},
+  {word:"QUEUE",spelling:"Q-U-E-U-E",hint:"5 letters, but only the Q is really 'heard'.",note:"Pronounced: /kiú/"},
+  {word:"ISLAND",spelling:"I-S-L-A-N-D",hint:"6 letters. The S is silent!",note:"Pronounced: /ÁI-land/"},
+  {word:"KNIGHT",spelling:"K-N-I-G-H-T",hint:"6 letters. K and GH are silent!",note:"Pronounced: /náit/"},
+  {word:"LAUGH",spelling:"L-A-U-G-H",hint:"5 letters. GH sounds like F!",note:"Pronounced: /láf/"},
+  {word:"BOULEVARD",spelling:"B-O-U-L-E-V-A-R-D",hint:"9 letters. A French-origin word.",note:"Pronounced: /BÚL-e-vard/"},
+  {word:"SERENDIPITY",spelling:"S-E-R-E-N-D-I-P-I-T-Y",hint:"11 letters. Sounds like it looks!",note:"Pronounced: /se-ren-DÍ-pi-ti/"},
+  {word:"CUMBERSOME",spelling:"C-U-M-B-E-R-S-O-M-E",hint:"10 letters. B is silent!",note:"Pronounced: /KÁM-ber-som/"},
+  {word:"PHONE",spelling:"P-H-O-N-E",hint:"5 letters. PH sounds like F!",note:"Pronounced: /fóun/"},
+  {word:"RECEIPT",spelling:"R-E-C-E-I-P-T",hint:"7 letters. P is silent!",note:"Pronounced: /ri-SÍT/"}
+];
+
+// ── STATE ───────────────────────────────────────────────
+
+
+// ── TAB SWITCHING ───────────────────────────────────────
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── HINT / ANSWER HELPERS ───────────────────────────────
+function toggleHint(id){
+  document.getElementById('hint-'+id).classList.toggle('visible');
+}
+function showAnswer(id){
+  document.getElementById('ans-'+id).classList.add('visible');
+}
+function toggleSample(i){
+  document.getElementById('spsample-'+i).classList.toggle('visible');
+}
+
+// ── RESULTS PANEL ───────────────────────────────────────
+function renderResultsPanel(panelId, correct, total, breakdown){
+  var pct = Math.round((correct/total)*100);
+  var verdict = correct===total ? '🎉 Perfect score! Excellent work!' :
+                correct>=total*0.8 ? '👍 Great job! Almost there!' :
+                correct>=total*0.5 ? '💪 Good effort! Keep practicing.' :
+                '📚 Keep going! Review the hints and try again.';
+  var rows = breakdown.map(function(b){
+    return '<div class="result-row">' + (b.ok
+      ? '<span class="r-ok">✅</span><span class="r-ok">Q'+b.n+': Correct — <strong>'+b.ans+'</strong></span>'
+      : '<span class="r-bad">❌</span><span class="r-bad">Q'+b.n+': '+(b.yours?'You wrote "'+b.yours+'"':'No answer')+' → correct: <strong>'+b.ans+'</strong></span>'
+    )+'</div>';
+  }).join('');
+  var panel = document.getElementById(panelId);
+  panel.innerHTML =
+    '<h3>📊 Results / Resultados</h3>' +
+    '<div class="score-big">'+correct+' / '+total+'</div>' +
+    '<div class="bar-bg"><div class="bar-fill" style="width:'+pct+'%"></div></div>' +
+    '<div style="font-size:0.82rem;opacity:0.7;margin-bottom:12px;">'+pct+'% correct</div>' +
+    rows +
+    '<div class="verdict">'+verdict+'</div>';
+  panel.style.display = 'block';
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ── FILL IN THE BLANK ───────────────────────────────────
+function buildFill(){
+  var container = document.getElementById('fill-questions');
+  var dots = document.getElementById('fill-dots');
+  dots.innerHTML = fillData.map(function(_,i){ return '<div class="dot" id="fdot-'+i+'"></div>'; }).join('');
+  fillData.forEach(function(q,i){
+    var parts = q.sentence.map(function(p,idx){
+      return idx===q.blank ? '<input class="blank-input" id="finput-'+i+'" placeholder="___" autocomplete="off">' : '<span>'+p+'</span>';
+    }).join(' ');
+    container.innerHTML += '<div class="q-block" id="fq-'+i+'">' +
+      '<div class="q-text"><span class="q-num">'+(i+1)+'.</span> '+parts+'</div>' +
+      '<div class="es">📝 '+q.es.replace('___','<strong>___</strong>')+'</div>' +
+      '<div class="hint-answer-area">' +
+        '<button class="hint-btn" onclick="toggleHint(\'f'+i+'\')">💡 Hint / Pista</button>' +
+        '<button class="answer-btn" onclick="showAnswer(\'f'+i+'\')">👁️ See Answer / Ver respuesta</button>' +
+        '<div class="hint-box" id="hint-f'+i+'">'+q.hint+'</div>' +
+        '<div class="answer-box" id="ans-f'+i+'">✅ <strong>'+q.answer+'</strong></div>' +
+        '<div class="feedback" id="ffb-'+i+'"></div>' +
+      '</div></div>';
+  });
+}
+
+function checkFill(){
+  var correct = 0;
+  var breakdown = [];
+  fillData.forEach(function(q,i){
+    var val = (document.getElementById('finput-'+i).value||'').trim().toLowerCase();
+    var dot = document.getElementById('fdot-'+i);
+    var fb  = document.getElementById('ffb-'+i);
+    var ok  = val === q.answer.toLowerCase();
+    if(ok){ correct++; dot.classList.add('done'); fb.textContent='✅ Correct! / ¡Correcto!'; fb.className='feedback ok'; }
+    else { dot.classList.remove('done'); dot.classList.add('wrong-dot'); fb.textContent=val?'❌ Not quite. / Intenta de nuevo.':'⚠️ Missing answer'; fb.className='feedback bad'; }
+    breakdown.push({n:i+1,ok:ok,ans:q.answer,yours:val});
+  });
+  renderResultsPanel('fill-results',correct,fillData.length,breakdown);
+}
+
+function revealAllFill(){
+  fillData.forEach(function(q,i){
+    var inp = document.getElementById('finput-'+i);
+    if(inp){ inp.value=q.answer; inp.style.color='var(--teal)'; }
+    document.getElementById('fdot-'+i).classList.add('done');
+    var fb = document.getElementById('ffb-'+i);
+    fb.textContent='👁️ Answer revealed'; fb.className='feedback ok';
+  });
+}
+
+// ── ERROR IDENTIFICATION ────────────────────────────────
+function buildErrors(){
+  var container = document.getElementById('err-questions');
+  var dots = document.getElementById('err-dots');
+  dots.innerHTML = errData.map(function(_,i){ return '<div class="dot" id="edot-'+i+'"></div>'; }).join('');
+  errData.forEach(function(q,i){
+    var highlighted = q.sentence.replace(q.wrong,'<span class="underline">'+q.wrong+'</span>');
+    container.innerHTML +=
+      '<div class="q-block" id="eq-'+i+'" style="padding:18px 18px 14px;">' +
+        '<div class="q-text" style="font-size:1.1rem; margin-bottom:10px;">' +
+          '<span class="q-num">'+(i+1)+'.</span> '+highlighted +
+        '</div>' +
+        '<div class="es" style="margin-bottom:12px;">&#x1F1EA;&#x1F1F8; <em>'+q.es+'</em></div>' +
+        '<div style="background:#f0faf8;border-radius:10px;padding:12px 14px;margin-bottom:10px;">' +
+          '<div style="font-size:0.85rem;color:var(--gray);font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">'+
+            '&#x270F;&#xFE0F; Write only the corrected word / Escribe solo la palabra corregida:'+
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">' +
+            '<input id="einput-'+i+'" placeholder="Corrected word..." autocomplete="off" '+
+              'style="font-family:Nunito,sans-serif;font-size:1.1rem;font-weight:800;color:var(--blue);'+
+              'border:2px solid var(--teal);border-radius:10px;padding:10px 16px;'+
+              'width:100%;max-width:260px;outline:none;background:white;transition:border-color 0.2s;" '+
+              'onfocus="this.style.borderColor=\'var(--red)\'" onblur="this.style.borderColor=\'var(--teal)\'">' +
+            '<button class="check-btn" onclick="checkError('+i+')" '+
+              'style="padding:10px 18px;font-size:0.9rem;border-radius:10px;white-space:nowrap;">&#x2705; Check</button>' +
+          '</div>' +
+          '<div class="feedback" id="efb-'+i+'" style="margin-top:8px;font-size:0.95rem;"></div>' +
+        '</div>' +
+        '<div class="hint-answer-area" style="margin-top:4px;">' +
+          '<button class="hint-btn" onclick="toggleHint(\'e'+i+'\')">&#x1F4A1; Hint / Pista</button>' +
+          '<button class="answer-btn" onclick="showAnswer(\'e'+i+'\')">&#x1F441;&#xFE0F; See Answer / Ver respuesta</button>' +
+          '<div class="hint-box" id="hint-e'+i+'">'+q.hint+'</div>' +
+          '<div class="answer-box" id="ans-e'+i+'">&#x2705; Wrong word: <strong>"'+q.wrong+'"</strong> &#x2192; Correct: <strong>"'+q.correct+'"</strong></div>' +
+        '</div>' +
+      '</div>';
+  });
+}
+
+function checkError(i){
+  var val = (document.getElementById('einput-'+i).value||'').trim().toLowerCase();
+  var q   = errData[i];
+  var dot = document.getElementById('edot-'+i);
+  var fb  = document.getElementById('efb-'+i);
+  if(val === q.correct.toLowerCase()){
+    dot.classList.add('done');
+    fb.textContent='✅ Correct! / ¡Correcto!'; fb.className='feedback ok';
+  } else {
+    dot.classList.remove('done'); dot.classList.add('wrong-dot');
+    fb.textContent='❌ Not quite. Try again!'; fb.className='feedback bad';
+  }
+}
+
+function submitAllErrors(){
+  var correct = 0;
+  var breakdown = [];
+  errData.forEach(function(q,i){
+    var val = (document.getElementById('einput-'+i).value||'').trim().toLowerCase();
+    var dot = document.getElementById('edot-'+i);
+    var fb  = document.getElementById('efb-'+i);
+    var ok  = val === q.correct.toLowerCase();
+    if(ok){ correct++; dot.classList.add('done'); fb.textContent='✅ Correct!'; fb.className='feedback ok'; }
+    else { dot.classList.remove('done'); dot.classList.add('wrong-dot'); fb.textContent='❌ Not quite.'; fb.className='feedback bad'; }
+    breakdown.push({n:i+1,ok:ok,ans:q.correct,yours:val});
+  });
+  renderResultsPanel('err-results',correct,errData.length,breakdown);
+}
+
+function revealAllErrors(){
+  errData.forEach(function(q,i){
+    var inp = document.getElementById('einput-'+i);
+    if(inp){ inp.value=q.correct; inp.style.color='var(--teal)'; }
+    document.getElementById('edot-'+i).classList.add('done');
+    var fb = document.getElementById('efb-'+i);
+    fb.textContent='👁️ Answer: "'+q.correct+'"'; fb.className='feedback ok';
+  });
+}
+
+// ── MULTIPLE CHOICE ─────────────────────────────────────
+function buildMC(){
+  var container = document.getElementById('mc-questions');
+  var dots = document.getElementById('mc-dots');
+  dots.innerHTML = mcData.map(function(_,i){ return '<div class="dot" id="mcdot-'+i+'"></div>'; }).join('');
+  mcData.forEach(function(q,i){
+    var opts = q.options.map(function(o){
+      return '<button class="choice-btn" id="mcbtn-'+i+'-'+o+'" onclick="selectMC('+i+',\''+o+'\')">'+o+'</button>';
+    }).join('');
+    container.innerHTML += '<div class="q-block" id="mcq-'+i+'">' +
+      '<div class="q-text"><span class="q-num">'+(i+1)+'.</span> '+q.sentence.replace('___','<span style="color:var(--teal);font-weight:900;">___</span>')+'</div>' +
+      '<div class="es">📝 <em>'+q.es+'</em></div>' +
+      '<div class="choices">'+opts+'</div>' +
+      '<div class="hint-answer-area">' +
+        '<button class="hint-btn" onclick="toggleHint(\'mc'+i+'\')">💡 Hint / Pista</button>' +
+        '<div class="hint-box" id="hint-mc'+i+'">'+q.hint+'</div>' +
+        '<div class="feedback" id="mcfb-'+i+'"></div>' +
+      '</div></div>';
+  });
+}
+
+function selectMC(i, chosen){
+  var q = mcData[i];
+  q.options.forEach(function(o){
+    var b = document.getElementById('mcbtn-'+i+'-'+o);
+    if(b) b.disabled = true;
+  });
+  var dot = document.getElementById('mcdot-'+i);
+  var fb  = document.getElementById('mcfb-'+i);
+  var chosenBtn  = document.getElementById('mcbtn-'+i+'-'+chosen);
+  var correctBtn = document.getElementById('mcbtn-'+i+'-'+q.answer);
+  if(chosen === q.answer){
+    if(chosenBtn) chosenBtn.className='choice-btn selected-correct';
+    dot.classList.add('done');
+    fb.textContent='✅ Correct! / ¡Correcto!'; fb.className='feedback ok';
+  } else {
+    if(chosenBtn)  chosenBtn.className='choice-btn selected-wrong';
+    if(correctBtn) correctBtn.className='choice-btn correct-reveal';
+    dot.classList.add('wrong-dot');
+    fb.textContent='❌ The correct answer is: "'+q.answer+'"'; fb.className='feedback bad';
+  }
+}
+
+function submitAllMC(){
+  var correct = 0;
+  var breakdown = [];
+  mcData.forEach(function(q,i){
+    var yours = '';
+    q.options.forEach(function(o){
+      var btn = document.getElementById('mcbtn-'+i+'-'+o);
+      if(btn && (btn.classList.contains('selected-correct')||btn.classList.contains('selected-wrong'))) yours = o;
+    });
+    var ok = yours === q.answer;
+    if(ok) correct++;
+    breakdown.push({n:i+1,ok:ok,ans:q.answer,yours:yours});
+  });
+  renderResultsPanel('mc-results',correct,mcData.length,breakdown);
+}
+
+function revealAllMC(){
+  mcData.forEach(function(q,i){
+    q.options.forEach(function(o){
+      var btn = document.getElementById('mcbtn-'+i+'-'+o);
+      if(!btn) return;
+      btn.disabled = true;
+      if(o === q.answer) btn.className='choice-btn correct-reveal';
+    });
+    document.getElementById('mcdot-'+i).classList.add('done');
+    var fb = document.getElementById('mcfb-'+i);
+    fb.textContent='👁️ Answer: "'+q.answer+'"'; fb.className='feedback ok';
+  });
+}
+
+// ── STORY ───────────────────────────────────────────────
+function buildStory(){
+  var container = document.getElementById('story-text');
+  var selectIdx = 0;
+  var html = storyRaw.replace(/\[([^\]]+)\]/g, function(match, inner){
+    var opts = inner.split('/').map(function(o){ return o.trim(); });
+    var sel = selectIdx++;
+    var optsHtml = opts.map(function(o){ return '<option value="'+o+'">'+o+'</option>'; }).join('');
+    return '<select class="story-select" id="ssel-'+sel+'"><option value="">---</option>'+optsHtml+'</select>';
+  });
+  container.innerHTML = html.replace(/\n/g,'<br>');
+}
+
+function checkStory(){
+  var correct = 0;
+  var breakdown = [];
+  storyAnswers.forEach(function(ans,i){
+    var sel = document.getElementById('ssel-'+i);
+    if(!sel) return;
+    var ok = sel.value === ans;
+    if(ok){ sel.className='story-select correct'; correct++; }
+    else { sel.className='story-select wrong'; }
+    breakdown.push({n:i+1,ok:ok,ans:ans,yours:sel.value||''});
+  });
+  renderResultsPanel('story-results',correct,storyAnswers.length,breakdown);
+}
+
+function revealStory(){
+  storyAnswers.forEach(function(ans,i){
+    var sel = document.getElementById('ssel-'+i);
+    if(sel){ sel.value=ans; sel.className='story-select correct'; sel.disabled=true; }
+  });
+}
+
+function toggleStorySpanish(){
+  var box = document.getElementById('story-spanish');
+  var btn = document.getElementById('es-toggle-btn');
+  if(box.style.display === 'none'){
+    box.style.display = 'block';
+    box.innerHTML = storySpanish.replace(/\n\n/g,'<br><br>');
+    btn.textContent = '🙈 Ocultar español';
+    btn.scrollIntoView({behavior:'smooth',block:'nearest'});
+  } else {
+    box.style.display = 'none';
+    btn.textContent = '🇪🇸 Ver en español';
+  }
+}
+
+// ── SPEAKING ────────────────────────────────────────────
+function buildSpeaking(){
+  var container = document.getElementById('speaking-questions');
+  speakData.forEach(function(q,i){
+    container.innerHTML +=
+      '<div class="speaking-card" id="spq-'+i+'">' +
+        '<div class="q-text"><span class="q-num">'+(i+1)+'.</span> '+q.q+'</div>' +
+        '<div class="es" style="margin-top:4px;">💡 Tip: <em>'+q.hint+'</em></div>' +
+        '<button class="hint-btn" onclick="toggleSample('+i+')" style="margin-top:8px;">💬 See sample / Ver ejemplo</button>' +
+        '<div class="sp-sample" id="spsample-'+i+'">' +
+          '<div class="en">🇺🇸 '+q.sampleEn+'</div>' +
+          '<div class="sp" style="margin-top:4px;">🇪🇸 '+q.sampleEs+'</div>' +
+        '</div>' +
+      '</div>';
+  });
+}
+
+// ── ALPHABET ────────────────────────────────────────────
+function buildAlphabet(){
+  var grid = document.getElementById('alpha-grid');
+  ALPHABET.forEach(function(a){
+    grid.innerHTML += '<div class="letter-tile '+(a.vowel?'vowel':'')+'">' +
+      '<div class="ltr">'+a.l+'</div>' +
+      '<div class="pron">'+a.p+'</div>' +
+    '</div>';
+  });
+
+  var container = document.getElementById('spell-questions');
+  spellData.forEach(function(q,i){
+    container.innerHTML += '<div class="q-block" id="spellq-'+i+'">' +
+      '<div class="q-text"><span class="q-num">'+(i+1)+'.</span> How do you spell: <strong style="color:var(--red);font-family:\'Fredoka One\',cursive;font-size:1.1rem;">'+q.word+'</strong></div>' +
+      '<div class="es">📌 <em>'+q.note+'</em></div>' +
+      '<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">' +
+        '<input class="spell-input" id="spellinput-'+i+'" placeholder="e.g.: R-H-Y-T-H-M" autocomplete="off">' +
+      '</div>' +
+      '<div class="hint-answer-area">' +
+        '<button class="hint-btn" onclick="toggleHint(\'sp'+i+'\')">💡 Hint / Pista</button>' +
+        '<button class="answer-btn" onclick="showAnswer(\'sp'+i+'\')">👁️ See Answer / Ver respuesta</button>' +
+        '<div class="hint-box" id="hint-sp'+i+'">'+q.hint+'</div>' +
+        '<div class="answer-box" id="ans-sp'+i+'">✅ <strong>'+q.spelling+'</strong></div>' +
+        '<div class="feedback" id="spfb-'+i+'"></div>' +
+      '</div></div>';
+  });
+}
+
+function submitAllSpell(){
+  var correct = 0;
+  var breakdown = [];
+  spellData.forEach(function(q,i){
+    var raw = (document.getElementById('spellinput-'+i).value||'').trim().toUpperCase().replace(/\s+/g,'');
+    var ans = q.spelling.replace(/\s/g,'');
+    var fb  = document.getElementById('spfb-'+i);
+    var ok  = raw.replace(/-/g,'') === ans.replace(/-/g,'');
+    var exact = raw === ans;
+    if(ok){ correct++;
+      fb.textContent = exact ? '✅ Perfect! / ¡Perfecto!' : '✅ Correct! (Remember hyphens between letters)';
+      fb.className='feedback ok';
+    } else {
+      fb.textContent = raw ? '❌ Not quite. / ¡Inténtalo de nuevo!' : '⚠️ Missing answer';
+      fb.className='feedback bad';
+    }
+    breakdown.push({n:i+1,ok:ok,ans:q.spelling,yours:raw||''});
+  });
+  renderResultsPanel('spell-results',correct,spellData.length,breakdown);
+}
+
+function revealAllSpell(){
+  spellData.forEach(function(q,i){
+    var inp = document.getElementById('spellinput-'+i);
+    if(inp){ inp.value=q.spelling; inp.style.color='var(--teal)'; }
+    var fb = document.getElementById('spfb-'+i);
+    fb.textContent='👁️ Answer: '+q.spelling; fb.className='feedback ok';
+  });
+}
+
+// ── INIT ────────────────────────────────────────────────
+buildFill();
+buildErrors();
+buildMC();
+buildStory();
+buildSpeaking();
+buildAlphabet();
+
+</script>
+</body>
+</html>
