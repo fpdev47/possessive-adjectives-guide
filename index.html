@@ -432,10 +432,154 @@
   .results-panel .verdict { font-size:1rem; font-weight:800; margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.15); }
 
   /* Spelling: remove individual check btn style conflict */
-  @media(max-width:480px){
-    .card { padding: 16px 14px; }
-    .tab-btn { padding: 12px 14px; font-size: 0.78rem; }
-    .blank-input { width: 70px; }
+  /* ── MOBILE UX ── */
+  @media(max-width:600px){
+    /* Base */
+    body { font-size: 15px; }
+
+    /* Header — tighter on mobile */
+    header { padding: 18px 14px 14px; }
+    header h1 { font-size: 1.3rem; letter-spacing: 0; }
+    header p { font-size: 0.82rem; }
+    .badge { font-size: 0.65rem; padding: 2px 8px; }
+
+    /* Tab nav — bigger tap targets, scroll indicator */
+    .tab-nav { gap: 0; }
+    .tab-btn {
+      padding: 14px 11px;
+      font-size: 0.72rem;
+      min-width: 48px;
+      letter-spacing: 0;
+    }
+
+    /* Sections — tighter padding */
+    .section { padding: 14px 12px 50px; }
+    .sec-header { margin-bottom: 16px; }
+    .sec-header h2 { font-size: 1.25rem; }
+    .sec-header p { font-size: 0.88rem; }
+    .sec-icon { font-size: 1.5rem; }
+
+    /* Cards */
+    .card { padding: 14px 12px; margin-bottom: 14px; border-radius: 10px; }
+    .card h2 { font-size: 1.05rem; gap: 6px; }
+    .card h3 { font-size: 0.95rem; }
+    .card p, .card li, .es { font-size: 0.92rem; }
+
+    /* Tables — horizontal scroll */
+    .pa-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; font-size: 0.82rem; }
+    .pa-table th, .pa-table td { padding: 8px 10px; }
+
+    /* its vs it's compare box — stack */
+    .compare-box { grid-template-columns: 1fr; gap: 10px; }
+    .compare-item .big { font-size: 1.4rem; }
+    .compare-item .meaning { font-size: 0.82rem; }
+
+    /* Formula tags */
+    .formula-tag { font-size: 0.72rem; padding: 2px 8px; }
+
+    /* Exercise blocks */
+    .q-block { padding: 13px 11px; margin-bottom: 12px; }
+    .q-text { font-size: 0.95rem; line-height: 1.6; }
+    .ex-intro { font-size: 0.85rem; padding: 10px 12px; }
+
+    /* Inputs — comfortable finger size */
+    .blank-input {
+      width: 88px;
+      font-size: 0.97rem;
+      padding: 3px 6px;
+    }
+    .spell-input {
+      font-size: 0.97rem;
+      padding: 9px 11px;
+      max-width: 100%;
+    }
+    .tr-textarea {
+      font-size: 0.97rem;
+      padding: 10px 12px;
+      min-height: 88px;
+    }
+
+    /* Error section input */
+    input[id^="einput"] {
+      font-size: 0.97rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    /* Hint / Answer / Check buttons — full-width feel */
+    .hint-btn, .answer-btn, .check-btn {
+      font-size: 0.84rem;
+      padding: 10px 14px;
+      border-radius: 14px;
+      margin-top: 8px;
+      display: inline-block;
+    }
+    .hint-box, .answer-box { font-size: 0.88rem; padding: 8px 11px; }
+    .feedback { font-size: 0.88rem; }
+
+    /* Multiple choice */
+    .choices { gap: 7px; flex-wrap: wrap; }
+    .choice-btn {
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      min-height: 44px;
+      border-radius: 14px;
+    }
+
+    /* Story */
+    .story-text { font-size: 0.97rem; line-height: 2.1; }
+    .story-select {
+      font-size: 0.9rem;
+      padding: 4px 6px;
+      border-radius: 6px;
+      max-width: 90px;
+    }
+
+    /* Speaking */
+    .speaking-card { padding: 12px 11px; }
+    .sp-sample { font-size: 0.88rem; padding: 10px 11px; }
+
+    /* Alphabet */
+    .alphabet-grid { grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 5px; }
+    .letter-tile { padding: 8px 3px; border-radius: 8px; }
+    .letter-tile .ltr { font-size: 1.35rem; }
+    .letter-tile .pron { font-size: 0.68rem; }
+
+    /* Progress dots */
+    .progress-dots { gap: 4px; flex-wrap: wrap; }
+    .dot { width: 8px; height: 8px; }
+
+    /* Results panel */
+    .results-panel { padding: 14px 12px; border-radius: 10px; }
+    .results-panel h3 { font-size: 1.1rem; }
+    .results-panel .score-big { font-size: 1.9rem; }
+    .results-panel .result-row {
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .results-panel .verdict { font-size: 0.9rem; }
+
+    /* Action button rows — stack on very small screens */
+    .action-row { flex-direction: column; align-items: stretch; }
+
+    /* Accent note */
+    .accent-note { padding: 10px 11px; }
+    .accent-note h4 { font-size: 0.85rem; }
+
+    /* Trick box */
+    .trick-box { padding: 12px; }
+  }
+
+  @media(max-width:380px){
+    body { font-size: 14px; }
+    .tab-btn { padding: 12px 8px; font-size: 0.68rem; min-width: 42px; }
+    .card h2 { font-size: 0.98rem; }
+    .choice-btn { font-size: 0.85rem; padding: 9px 10px; }
+    .story-select { max-width: 78px; font-size: 0.84rem; }
+    .letter-tile .ltr { font-size: 1.2rem; }
+    .blank-input { width: 76px; }
+    .results-panel .score-big { font-size: 1.7rem; }
   }
 
   /* Animation */
@@ -499,7 +643,8 @@
   <div class="sec-header">
     <div class="sec-icon">📖</div>
     <h2>Possessive Adjectives</h2>
-    <p>Los adjetivos posesivos — cuándo usarlos y cómo no confundirlos</p>
+    <p>When to use them and how to avoid the most common mistakes.</p>
+    <p class="es">Los adjetivos posesivos — cuándo usarlos y cómo evitar los errores más comunes.</p>
   </div>
 
   <div class="card">
@@ -662,6 +807,7 @@
     <div class="sec-icon">🔍</div>
     <h2>Spot the Error</h2>
     <p>Find the wrong word — then type only the corrected word. (50 exercises)</p>
+    <p class="es">Encuentra la palabra incorrecta — escribe solo la palabra corregida. (50 ejercicios)</p>
     <p class="es">Encuentra la palabra incorrecta — luego escribe <strong>solo esa palabra corregida</strong>.</p>
   </div>
   <div class="card" id="err-card">
@@ -709,8 +855,8 @@
 <section id="story" class="section">
   <div class="sec-header">
     <div class="sec-icon">📖</div>
-    <h2>A Crazy Monday at the Office</h2>
-    <p>Choose the correct option to complete the story. Simple Present.</p>
+    <h2>Meet Coco — The Office Plant 🌿</h2>
+    <p>Choose the correct option (its / it's / his / her / their) to complete the story.</p>
     <p class="es">Elige la opción correcta para completar la historia. Presente Simple.</p>
   </div>
   <div class="card purple-border">
@@ -749,7 +895,8 @@
   <div class="sec-header">
     <div class="sec-icon">🔤</div>
     <h2>The Alphabet / El Abecedario</h2>
-    <p>26 letters · pronunciación clara · spelling practice</p>
+    <p>26 letters · clear pronunciation guide · spelling practice</p>
+    <p class="es">26 letras · guía de pronunciación aproximada al español · práctica de deletreo</p>
   </div>
 
   <!-- Reference -->
@@ -861,267 +1008,120 @@ const ALPHABET = [
 ];
 
 
-// ── TRANSLATE (ES -> EN) ─────────────────────────────
-var translateData = [
-  {es:"Es un dia perfecto para estudiar ingles.",answer:"It's a perfect day to study English.",key:"it's",hint:"How do we say 'Es un...' in English? Think: It ___ a perfect day.",alt:["It is a perfect day to study English."]},
-  {es:"El perro mueve su cola cuando esta feliz.",answer:"The dog wags its tail when it is happy.",key:"its",hint:"'Su cola' belongs to the dog. Which possessive adjective (no apostrophe) shows that?",alt:["The dog wags its tail when it's happy."]},
-  {es:"Es importante llegar a tiempo al trabajo.",answer:"It's important to arrive on time to work.",key:"it's",hint:"'Es importante' — in English: It ___ important. Can you contract those two words?",alt:["It is important to arrive on time to work.","It's important to be on time to work."]},
-  {es:"La empresa actualiza su sitio web cada mes.",answer:"The company updates its website every month.",key:"its",hint:"'Su sitio web' — the website belongs to the company. Which form shows possession for a thing?",alt:[]},
-  {es:"Es una pelicula muy interesante.",answer:"It's a very interesting movie.",key:"it's",hint:"'Es una pelicula' — start with It ___. You can contract it!",alt:["It is a very interesting movie.","It's a very interesting film."]},
-  {es:"El gato duerme en su lugar favorito.",answer:"The cat sleeps in its favorite spot.",key:"its",hint:"'Su lugar favorito' — the spot belongs to the cat. Possession, no apostrophe.",alt:[]},
-  {es:"Es verdad que practicar todos los dias ayuda.",answer:"It's true that practicing every day helps.",key:"it's",hint:"'Es verdad que...' — think: It ___ true that... Contraction or not?",alt:["It is true that practicing every day helps."]},
-  {es:"El restaurante es famoso por su comida.",answer:"The restaurant is famous for its food.",key:"its",hint:"'Por su comida' — the food belongs to the restaurant. Possession, no apostrophe.",alt:[]},
-  {es:"Mi hermana trabaja en un hospital.",answer:"My sister works in a hospital.",key:"my",hint:"'Mi hermana' — who does the speaker talk about? Which possessive means 'mi'?",alt:[]},
-  {es:"Ella revisa sus correos cada manana.",answer:"She checks her emails every morning.",key:"her",hint:"'Ella' + 'sus correos' — the emails belong to her. Which possessive goes with 'she'?",alt:[]},
-  {es:"Carlos maneja su carro al trabajo todos los dias.",answer:"Carlos drives his car to work every day.",key:"his",hint:"'Su carro' belongs to Carlos (a man). Which possessive goes with 'he'?",alt:[]},
-  {es:"Nosotros amamos nuestro vecindario.",answer:"We love our neighborhood.",key:"our",hint:"'Nuestro vecindario' — the neighborhood belongs to us. What is the possessive for 'we'?",alt:[]},
-  {es:"Ellos visitan a sus abuelos cada domingo.",answer:"They visit their grandparents every Sunday.",key:"their",hint:"'Sus abuelos' belong to them. Which possessive goes with 'they'?",alt:[]},
-  {es:"Es esta tu chaqueta? Te queda bien!",answer:"Is this your jacket? It looks good on you!",key:"your",hint:"'Tu chaqueta' — you are talking to someone. Which possessive means 'tu'?",alt:["Is this your jacket? It looks great on you!"]},
-  {es:"Sofia ama su rutina matutina.",answer:"Sofia loves her morning routine.",key:"her",hint:"'Su rutina' belongs to Sofia (a woman). Which possessive goes with 'she'?",alt:[]},
-  {es:"Es normal sentirse nervioso antes de un examen.",answer:"It's normal to feel nervous before a test.",key:"it's",hint:"'Es normal' — in English: It ___ normal. Use a contraction!",alt:["It is normal to feel nervous before a test.","It's normal to feel nervous before an exam."]},
-  {es:"Su nombre es muy famoso.",answer:"Its name is very famous.",key:"its",hint:"This is about a thing (company or brand). 'Su nombre' — whose name? No apostrophe.",alt:[]},
-  {es:"Siempre llevo mi cuaderno a clase.",answer:"I always carry my notebook to class.",key:"my",hint:"'Mi cuaderno' — who does the notebook belong to? What possessive goes with 'I'?",alt:["I always bring my notebook to class."]},
-  {es:"Es dificil encontrar estacionamiento en el centro.",answer:"It's difficult to find parking downtown.",key:"it's",hint:"'Es dificil' — in English: It ___ difficult to... Contract it!",alt:["It is difficult to find parking downtown.","It's hard to find parking downtown."]},
-  {es:"El llama a su mama cada domingo.",answer:"He calls his mom every Sunday.",key:"his",hint:"'Su mama' belongs to him. Which possessive adjective goes with 'he'?",alt:["He calls his mother every Sunday."]}
-];
-
-function buildTranslate(){
-  var container = document.getElementById('tr-questions');
-  var dots = document.getElementById('tr-dots');
-  if(!container || !dots) return;
-  dots.innerHTML = translateData.map(function(_,i){
-    return '<div class="dot" id="trdot-'+i+'"></div>';
-  }).join('');
-  translateData.forEach(function(q,i){
-    var altHtml = '';
-    if(q.alt && q.alt.length > 0){
-      altHtml = '<div style="margin-top:6px;font-size:0.88rem;color:var(--gray);">Also accepted: '+q.alt.join(' / ')+'</div>';
-    }
-    var hintId   = 'hint-tr' + i;
-    var answerId = 'ans-tr'  + i;
-    var block = document.createElement('div');
-    block.className = 'q-block';
-    block.id = 'trq-' + i;
-    block.style.cssText = 'padding:20px 18px 16px;';
-    block.innerHTML =
-      '<div style="background:linear-gradient(135deg,#f0faf8,#e8f5f3);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin-bottom:12px;">' +
-        '<div style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:6px;">Spanish / Espanol</div>' +
-        '<div style="font-size:1.12rem;font-weight:700;color:var(--blue);"><span class="q-num">'+(i+1)+'.</span> '+q.es+'</div>' +
-      '</div>' +
-      '<div style="margin-bottom:12px;">' +
-        '<span style="background:var(--red);color:white;font-size:0.75rem;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;">Key word: '+q.key+'</span>' +
-      '</div>' +
-      '<div style="background:#f8f9fa;border-radius:10px;padding:14px 16px;margin-bottom:10px;">' +
-        '<div style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray);margin-bottom:10px;">Your English translation:</div>' +
-        '<textarea id="trinput-'+i+'" class="tr-textarea" placeholder="Write the full sentence in English..." rows="3"></textarea>' +
-        '<div class="feedback" id="trfb-'+i+'" style="margin-top:8px;font-size:0.95rem;"></div>' +
-      '</div>' +
-      '<div class="hint-answer-area">' +
-        '<div class="hint-box" id="'+hintId+'">'+q.hint+'</div>' +
-        '<div class="answer-box" id="'+answerId+'">Correct: <strong>'+q.answer+'</strong>'+altHtml+'</div>' +
-      '</div>';
-
-    // Buttons built with createElement to avoid any quote issues
-    var hintBtn = document.createElement('button');
-    hintBtn.className = 'hint-btn';
-    hintBtn.textContent = 'Hint / Pista';
-    hintBtn.setAttribute('data-target', hintId);
-    hintBtn.addEventListener('click', function(){ document.getElementById(this.getAttribute('data-target')).classList.toggle('visible'); });
-
-    var ansBtn = document.createElement('button');
-    ansBtn.className = 'answer-btn';
-    ansBtn.textContent = 'See Answer / Ver respuesta';
-    ansBtn.setAttribute('data-target', answerId);
-    ansBtn.addEventListener('click', function(){ document.getElementById(this.getAttribute('data-target')).classList.add('visible'); });
-
-    var hintArea = block.querySelector('.hint-answer-area');
-    hintArea.insertBefore(ansBtn, hintArea.firstChild);
-    hintArea.insertBefore(hintBtn, hintArea.firstChild);
-
-    container.appendChild(block);
-  });
-}
-
-function checkTranslateSingle(i, showFeedback){
-  var raw = (document.getElementById('trinput-'+i).value||'').trim();
-  var val = raw.toLowerCase().replace(/[.!?]+$/, '').replace(/\s+/g, ' ');
-  var q = translateData[i];
-  var accepted = [q.answer].concat(q.alt||[]);
-  var acceptedNorm = accepted.map(function(a){
-    return a.trim().toLowerCase().replace(/[.!?]+$/, '').replace(/\s+/g, ' ');
-  });
-  var exact = acceptedNorm.indexOf(val) !== -1;
-  var hasKey = val.indexOf(q.key.toLowerCase()) !== -1;
-  var partial = !exact && hasKey && val.length >= 8;
-  var dot = document.getElementById('trdot-'+i);
-  var fb  = document.getElementById('trfb-'+i);
-  if(exact){
-    if(showFeedback){ fb.textContent='Correct! / Correcto!'; fb.className='feedback ok'; }
-    dot.classList.remove('wrong-dot'); dot.classList.add('done');
-    return 'exact';
-  } else if(partial){
-    if(showFeedback){ fb.textContent='Good try! Right possessive — check word order or spelling.'; fb.className='feedback'; fb.style.color='#c97000'; }
-    dot.classList.remove('wrong-dot'); dot.classList.add('done');
-    return 'partial';
-  } else {
-    if(showFeedback){ fb.textContent = raw ? 'Not quite — check the hint!' : 'Missing answer / Falta respuesta'; fb.className='feedback bad'; }
-    dot.classList.remove('done'); dot.classList.add('wrong-dot');
-    return 'wrong';
-  }
-}
-
-function submitAllTranslate(){
-  var exact=0, partial=0, breakdown=[];
-  translateData.forEach(function(q,i){
-    var result = checkTranslateSingle(i, true);
-    if(result==='exact') exact++;
-    else if(result==='partial') partial++;
-    var val = (document.getElementById('trinput-'+i).value||'').trim();
-    breakdown.push({n:i+1, ok:result!=='wrong', ans:q.answer, yours:val, partial:result==='partial'});
-  });
-  var correct=exact+partial, total=translateData.length, pct=Math.round((correct/total)*100);
-  var verdict = exact===total ? 'Perfect! Every translation is spot on!' :
-                correct===total ? 'Great job! All possessives correct.' :
-                correct>=Math.floor(total*0.7) ? 'Good effort! Keep practicing.' : 'Keep going! Use the hints and try again.';
-  var rows = breakdown.map(function(b){
-    if(b.ok && b.partial) return '<div class="result-row"><span style="color:#ffd166;">Q'+b.n+': Good try! Right possessive used.</span></div>';
-    if(b.ok)              return '<div class="result-row"><span class="r-ok">Q'+b.n+': Correct!</span></div>';
-    return '<div class="result-row"><span class="r-bad">Q'+b.n+': '+(b.yours?'Check your answer':'No answer')+' - correct: '+b.ans+'</span></div>';
-  }).join('');
-  var panel = document.getElementById('tr-results');
-  panel.innerHTML =
-    '<h3>Results / Resultados</h3>' +
-    '<div class="score-big">'+correct+' / '+total+'</div>' +
-    '<div class="bar-bg"><div class="bar-fill" style="width:'+pct+'%"></div></div>' +
-    '<div style="font-size:0.85rem;opacity:0.7;margin-bottom:12px;">'+pct+'% - '+exact+' exact - '+partial+' partial</div>' +
-    rows + '<div class="verdict">'+verdict+'</div>';
-  panel.style.display='block';
-  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-
-function revealAllTranslate(){
-  translateData.forEach(function(q,i){
-    var ta=document.getElementById('trinput-'+i);
-    if(ta){ ta.value=q.answer; ta.style.color='var(--teal)'; ta.style.borderColor='var(--teal)'; }
-    document.getElementById('trdot-'+i).classList.add('done');
-    var fb=document.getElementById('trfb-'+i);
-    fb.textContent='Answer revealed'; fb.className='feedback ok';
-  });
-}
 
 // ── FILL IN THE BLANK ──────────────────────────────────
 const fillData = [
-  {sentence:['Carlos lives with','','parents in Medellín.'],blank:1,answer:'his',hint:'Carlos = he → ___',es:'Carlos vive con ___ padres en Medellín.'},
-  {sentence:['The dog loves','','food bowl.'],blank:1,answer:'its',hint:'The dog = it → ___ (no apostrophe!)',es:'El perro ama ___ plato de comida.'},
-  {sentence:['We forgot','','umbrellas at home.'],blank:1,answer:'our',hint:'We → ___',es:'Olvidamos ___ paraguas en casa.'},
-  {sentence:['','','great that you are here!'],blank:1,answer:"it's",hint:'"It is great" → use the contraction',es:'___ excelente que estés aquí.'},
-  {sentence:['Ana and Sofia call','','mom every Sunday.'],blank:1,answer:'their',hint:'Ana and Sofia = they → ___',es:'Ana y Sofía llaman a ___ mamá cada domingo.'},
-  {sentence:['Is this','','jacket? It looks great on you!'],blank:1,answer:'your',hint:'Talking to one person → ___',es:'¿Es esta ___ chaqueta? ¡Te queda genial!'},
-  {sentence:['Maria loves','','new job at the hospital.'],blank:1,answer:'her',hint:'Maria = she → ___',es:'María ama ___ nuevo trabajo en el hospital.'},
-  {sentence:['I always keep','','phone charged.'],blank:1,answer:'my',hint:'I → ___',es:'Siempre mantengo ___ teléfono cargado.'},
-  {sentence:['The company lost','','best employee last month.'],blank:1,answer:'its',hint:'The company = it → ___ (possessive, no apostrophe)',es:'La empresa perdió a ___ mejor empleado el mes pasado.'},
-  {sentence:['David and I love','','neighborhood.'],blank:1,answer:'our',hint:'David and I = we → ___',es:'A David y a mí nos encanta ___ vecindario.'}
+  {sentence:['Carlos lives with','','parents in Medellín.'],blank:1,answer:'his',reason:'his = Carlos (he) → his before a noun',hint:'Carlos = he → ___',es:'Carlos vive con ___ padres en Medellín.'},
+  {sentence:['The dog loves','','food bowl.'],blank:1,answer:'its',reason:'its = possession, no apostrophe → the bowl belongs to the dog',hint:'The dog = it → ___ (no apostrophe!)',es:'El perro ama ___ plato de comida.'},
+  {sentence:['We forgot','','umbrellas at home.'],blank:1,answer:'our',reason:'our = we forgot → our before a noun',hint:'We → ___',es:'Olvidamos ___ paraguas en casa.'},
+  {sentence:['','','great that you are here!'],blank:1,answer:"it's",reason:"it's = it is → 'It is great that you are here' ✅",hint:'"It is great" → use the contraction',es:'___ excelente que estés aquí.'},
+  {sentence:['Ana and Sofia call','','mom every Sunday.'],blank:1,answer:'their',reason:'their = they (Ana and Sofia) → their before a noun',hint:'Ana and Sofia = they → ___',es:'Ana y Sofía llaman a ___ mamá cada domingo.'},
+  {sentence:['Is this','','jacket? It looks great on you!'],blank:1,answer:'your',reason:'your = talking to you directly → your before a noun',hint:'Talking to one person → ___',es:'¿Es esta ___ chaqueta? ¡Te queda genial!'},
+  {sentence:['Maria loves','','new job at the hospital.'],blank:1,answer:'her',reason:'her = she (Maria) → her before a noun',hint:'Maria = she → ___',es:'María ama ___ nuevo trabajo en el hospital.'},
+  {sentence:['I always keep','','phone charged.'],blank:1,answer:'my',reason:'my = I → my before a noun',hint:'I → ___',es:'Siempre mantengo ___ teléfono cargado.'},
+  {sentence:['The company lost','','best employee last month.'],blank:1,answer:'its',reason:'its = possession, no apostrophe → the employee belongs to the company',hint:'The company = it → ___ (possessive, no apostrophe)',es:'La empresa perdió a ___ mejor empleado el mes pasado.'},
+  {sentence:['David and I love','','neighborhood.'],blank:1,answer:'our',reason:'our = we (David and I) → our before a noun',hint:'David and I = we → ___',es:'A David y a mí nos encanta ___ vecindario.'}
 ];
 
 // ── ERROR IDENTIFICATION ────────────────────────────────
 const errData = [
   // ── its vs it's (30 items) ──
-  {sentence:"The dog wags it's tail happily.",wrong:"it's",correct:"its",hint:"Try replacing the underlined word with 'it is'. Does the sentence still make sense?",es:"El perro mueve su cola felizmente."},
-  {sentence:"Its a really cold morning today.",wrong:"Its",correct:"It's",hint:"Can you expand the underlined word into two words? Try 'It is...' — does it work here?",es:"Es una mañana muy fría hoy."},
-  {sentence:"The phone lost it's screen protector.",wrong:"it's",correct:"its",hint:"Ask yourself: does the screen protector belong to the phone? Then which form shows possession?",es:"El teléfono perdió su protector de pantalla."},
-  {sentence:"Its very important to study every day.",wrong:"Its",correct:"It's",hint:"Try saying the sentence out loud with 'It is' instead. Does it sound right?",es:"Es muy importante estudiar todos los días."},
-  {sentence:"The company changes it's logo every year.",wrong:"it's",correct:"its",hint:"Does the logo belong to the company? Think about which form we use to show something belongs to 'it'.",es:"La empresa cambia su logo cada año."},
-  {sentence:"Its been a long and tiring week.",wrong:"Its",correct:"It's",hint:"Try expanding: 'It ___ been a long week.' Which verb fits — 'is' or 'has'? Can you contract that?",es:"Ha sido una semana larga y cansada."},
-  {sentence:"The cat eats from it's bowl every morning.",wrong:"it's",correct:"its",hint:"Who does the bowl belong to? Now, which form of 'its/it's' shows ownership — not a contraction?",es:"El gato come de su plato cada mañana."},
-  {sentence:"Its always sunny in this city.",wrong:"Its",correct:"It's",hint:"Read the sentence replacing the underlined word with 'It is'. How does it sound?",es:"Siempre hace sol en esta ciudad."},
-  {sentence:"The car needs it's oil changed.",wrong:"it's",correct:"its",hint:"Is 'it is oil' a phrase that makes sense? What does that tell you about which form to use?",es:"El carro necesita cambiar su aceite."},
-  {sentence:"Its a great idea to review your notes.",wrong:"Its",correct:"It's",hint:"What two words could you use instead of the underlined word at the start of this sentence?",es:"Es una gran idea revisar tus apuntes."},
-  {sentence:"The team celebrates it's victory every Friday.",wrong:"it's",correct:"its",hint:"Does the victory belong to the team? Which form shows that something belongs to 'it'?",es:"El equipo celebra su victoria cada viernes."},
-  {sentence:"Its easy to learn English with practice.",wrong:"Its",correct:"It's",hint:"Say 'It is easy to learn English' — does that work? What contraction could replace those two words?",es:"Es fácil aprender inglés con práctica."},
-  {sentence:"The book has it's own unique style.",wrong:"it's",correct:"its",hint:"Try 'it is own unique style' — does that phrase make sense to you?",es:"El libro tiene su propio estilo único."},
-  {sentence:"Its not a good day to go to the beach.",wrong:"Its",correct:"It's",hint:"What two words is the underlined word trying to say here? Can you say them out loud?",es:"No es un buen día para ir a la playa."},
-  {sentence:"The restaurant is famous for it's pizza.",wrong:"it's",correct:"its",hint:"Does the pizza belong to the restaurant? Think: possession or contraction?",es:"El restaurante es famoso por su pizza."},
-  {sentence:"Its normal to feel nervous before a test.",wrong:"Its",correct:"It's",hint:"Replace the underlined word with 'It is'. Read the sentence — does that sound natural?",es:"Es normal sentirse nervioso antes de un examen."},
-  {sentence:"The store closes it's doors at 9 PM.",wrong:"it's",correct:"its",hint:"Whose doors are they? Ask yourself: am I talking about possession or a contraction here?",es:"La tienda cierra sus puertas a las 9 PM."},
-  {sentence:"Its Monday and the office is already busy.",wrong:"Its",correct:"It's",hint:"Think about how you say the day of the week in English. What two words start that kind of sentence?",es:"Es lunes y la oficina ya está ocupada."},
-  {sentence:"The plant needs it's leaves cleaned.",wrong:"it's",correct:"its",hint:"Do the leaves belong to the plant? Which form — with or without apostrophe — shows that?",es:"La planta necesita limpiar sus hojas."},
-  {sentence:"Its funny how fast time goes.",wrong:"Its",correct:"It's",hint:"Try saying 'It is funny how fast time goes.' Does that sentence work?",es:"Es gracioso qué rápido pasa el tiempo."},
-  {sentence:"The movie is great but it's ending is sad.",wrong:"it's",correct:"its",hint:"Try 'it is ending is sad' — does that phrase make grammatical sense?",es:"La película es genial pero su final es triste."},
-  {sentence:"Its 8 o'clock and class starts now.",wrong:"Its",correct:"It's",hint:"How do we normally express the time in English? What two words begin that sentence?",es:"Son las 8 en punto y la clase empieza ahora."},
-  {sentence:"The website updates it's content daily.",wrong:"it's",correct:"its",hint:"Does the content belong to the website? Possession or contraction — which one fits?",es:"El sitio web actualiza su contenido a diario."},
-  {sentence:"Its true that coffee helps in the morning.",wrong:"Its",correct:"It's",hint:"Read: 'It is true that coffee helps.' Does that sentence make sense? What can you do with those two words?",es:"Es verdad que el café ayuda en la mañana."},
-  {sentence:"The school opens it's library on weekends.",wrong:"it's",correct:"its",hint:"Whose library is it? Is this sentence about ownership or about expanding two words into one?",es:"La escuela abre su biblioteca los fines de semana."},
-  {sentence:"Its a pleasure to meet you.",wrong:"Its",correct:"It's",hint:"What two words could replace the underlined word at the start? Say them out loud.",es:"Es un placer conocerte."},
-  {sentence:"The computer runs slow because of it's age.",wrong:"it's",correct:"its",hint:"Does the age belong to the computer? Ask: possession or contraction?",es:"El computador va lento por su antigüedad."},
-  {sentence:"Its important to drink water every day.",wrong:"Its",correct:"It's",hint:"Say the sentence with 'It is' instead of the underlined word. Does it work naturally?",es:"Es importante tomar agua todos los días."},
-  {sentence:"The song is popular because of it's rhythm.",wrong:"it's",correct:"its",hint:"Does the rhythm belong to the song? Think about which form expresses that.",es:"La canción es popular por su ritmo."},
-  {sentence:"Its 2025 and everything changes so fast.",wrong:"Its",correct:"It's",hint:"How do we say the year in English? What two words would naturally start this sentence?",es:"Es 2025 y todo cambia tan rápido."},
+  {sentence:"The dog wags it's tail happily.",wrong:"it's",correct:"its",reason:"its = possession → the tail belongs to the dog, not 'it is tail'",hint:"Try replacing the underlined word with 'it is'. Does the sentence still make sense?",es:"El perro mueve su cola felizmente."},
+  {sentence:"Its a really cold morning today.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is a cold morning' ✅",hint:"Can you expand the underlined word into two words? Try 'It is...' — does it work here?",es:"Es una mañana muy fría hoy."},
+  {sentence:"The phone lost it's screen protector.",wrong:"it's",correct:"its",reason:"its = possession → the screen protector belongs to the phone",hint:"Ask yourself: does the screen protector belong to the phone? Then which form shows possession?",es:"El teléfono perdió su protector de pantalla."},
+  {sentence:"Its very important to study every day.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is very important' ✅",hint:"Try saying the sentence out loud with 'It is' instead. Does it sound right?",es:"Es muy importante estudiar todos los días."},
+  {sentence:"The company changes it's logo every year.",wrong:"it's",correct:"its",reason:"its = possession → the logo belongs to the company",hint:"Does the logo belong to the company? Think about which form we use to show something belongs to 'it'.",es:"La empresa cambia su logo cada año."},
+  {sentence:"Its been a long and tiring week.",wrong:"Its",correct:"It's",reason:"it's = it has → 'It has been a long week' ✅",hint:"Try expanding: 'It ___ been a long week.' Which verb fits — 'is' or 'has'? Can you contract that?",es:"Ha sido una semana larga y cansada."},
+  {sentence:"The cat eats from it's bowl every morning.",wrong:"it's",correct:"its",reason:"its = possession → the bowl belongs to the cat",hint:"Who does the bowl belong to? Now, which form of 'its/it's' shows ownership — not a contraction?",es:"El gato come de su plato cada mañana."},
+  {sentence:"Its always sunny in this city.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is always sunny' ✅",hint:"Read the sentence replacing the underlined word with 'It is'. How does it sound?",es:"Siempre hace sol en esta ciudad."},
+  {sentence:"The car needs it's oil changed.",wrong:"it's",correct:"its",reason:"its = possession → the oil belongs to the car",hint:"Is 'it is oil' a phrase that makes sense? What does that tell you about which form to use?",es:"El carro necesita cambiar su aceite."},
+  {sentence:"Its a great idea to review your notes.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is a great idea' ✅",hint:"What two words could you use instead of the underlined word at the start of this sentence?",es:"Es una gran idea revisar tus apuntes."},
+  {sentence:"The team celebrates it's victory every Friday.",wrong:"it's",correct:"its",reason:"its = possession → the victory belongs to the team",hint:"Does the victory belong to the team? Which form shows that something belongs to 'it'?",es:"El equipo celebra su victoria cada viernes."},
+  {sentence:"Its easy to learn English with practice.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is easy to learn' ✅",hint:"Say 'It is easy to learn English' — does that work? What contraction could replace those two words?",es:"Es fácil aprender inglés con práctica."},
+  {sentence:"The book has it's own unique style.",wrong:"it's",correct:"its",reason:"its = possession → the style belongs to the book",hint:"Try 'it is own unique style' — does that phrase make sense to you?",es:"El libro tiene su propio estilo único."},
+  {sentence:"Its not a good day to go to the beach.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is not a good day' ✅",hint:"What two words is the underlined word trying to say here? Can you say them out loud?",es:"No es un buen día para ir a la playa."},
+  {sentence:"The restaurant is famous for it's pizza.",wrong:"it's",correct:"its",reason:"its = possession → the pizza belongs to the restaurant",hint:"Does the pizza belong to the restaurant? Think: possession or contraction?",es:"El restaurante es famoso por su pizza."},
+  {sentence:"Its normal to feel nervous before a test.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is normal to feel nervous' ✅",hint:"Replace the underlined word with 'It is'. Read the sentence — does that sound natural?",es:"Es normal sentirse nervioso antes de un examen."},
+  {sentence:"The store closes it's doors at 9 PM.",wrong:"it's",correct:"its",reason:"its = possession → the doors belong to the store",hint:"Whose doors are they? Ask yourself: am I talking about possession or a contraction here?",es:"La tienda cierra sus puertas a las 9 PM."},
+  {sentence:"Its Monday and the office is already busy.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is Monday' ✅",hint:"Think about how you say the day of the week in English. What two words start that kind of sentence?",es:"Es lunes y la oficina ya está ocupada."},
+  {sentence:"The plant needs it's leaves cleaned.",wrong:"it's",correct:"its",reason:"its = possession → the leaves belong to the plant",hint:"Do the leaves belong to the plant? Which form — with or without apostrophe — shows that?",es:"La planta necesita limpiar sus hojas."},
+  {sentence:"Its funny how fast time goes.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is funny how fast time goes' ✅",hint:"Try saying 'It is funny how fast time goes.' Does that sentence work?",es:"Es gracioso qué rápido pasa el tiempo."},
+  {sentence:"The movie is great but it's ending is sad.",wrong:"it's",correct:"its",reason:"its = possession → the ending belongs to the movie",hint:"Try 'it is ending is sad' — does that phrase make grammatical sense?",es:"La película es genial pero su final es triste."},
+  {sentence:"Its 8 o'clock and class starts now.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is 8 o clock' ✅",hint:"How do we normally express the time in English? What two words begin that sentence?",es:"Son las 8 en punto y la clase empieza ahora."},
+  {sentence:"The website updates it's content daily.",wrong:"it's",correct:"its",reason:"its = possession → the content belongs to the website",hint:"Does the content belong to the website? Possession or contraction — which one fits?",es:"El sitio web actualiza su contenido a diario."},
+  {sentence:"Its true that coffee helps in the morning.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is true that coffee helps' ✅",hint:"Read: 'It is true that coffee helps.' Does that sentence make sense? What can you do with those two words?",es:"Es verdad que el café ayuda en la mañana."},
+  {sentence:"The school opens it's library on weekends.",wrong:"it's",correct:"its",reason:"its = possession → the library belongs to the school",hint:"Whose library is it? Is this sentence about ownership or about expanding two words into one?",es:"La escuela abre su biblioteca los fines de semana."},
+  {sentence:"Its a pleasure to meet you.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is a pleasure' ✅",hint:"What two words could replace the underlined word at the start? Say them out loud.",es:"Es un placer conocerte."},
+  {sentence:"The computer runs slow because of it's age.",wrong:"it's",correct:"its",reason:"its = possession → the age belongs to the computer",hint:"Does the age belong to the computer? Ask: possession or contraction?",es:"El computador va lento por su antigüedad."},
+  {sentence:"Its important to drink water every day.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is important to drink water' ✅",hint:"Say the sentence with 'It is' instead of the underlined word. Does it work naturally?",es:"Es importante tomar agua todos los días."},
+  {sentence:"The song is popular because of it's rhythm.",wrong:"it's",correct:"its",reason:"its = possession → the rhythm belongs to the song",hint:"Does the rhythm belong to the song? Think about which form expresses that.",es:"La canción es popular por su ritmo."},
+  {sentence:"Its 2025 and everything changes so fast.",wrong:"Its",correct:"It's",reason:"it's = it is → 'It is 2025' ✅",hint:"How do we say the year in English? What two words would naturally start this sentence?",es:"Es 2025 y todo cambia tan rápido."},
   // ── Other possessives (20 items) ──
-  {sentence:"She always forgets hers lunch at home.",wrong:"hers",correct:"her",hint:"Look at the underlined word — it comes before a noun. Do possessive adjectives before nouns end in 's'?",es:"Ella siempre olvida su almuerzo en casa."},
-  {sentence:"My brother drives he car to work every day.",wrong:"he",correct:"his",hint:"The underlined word is a subject pronoun. What is the possessive form of that pronoun?",es:"Mi hermano maneja su carro al trabajo todos los días."},
-  {sentence:"We love ours neighborhood very much.",wrong:"ours",correct:"our",hint:"The underlined word comes right before a noun. Which shorter form of this word goes before nouns?",es:"Amamos mucho nuestro vecindario."},
-  {sentence:"They always do theirs homework after dinner.",wrong:"theirs",correct:"their",hint:"Before a noun like 'homework', do we use the longer or shorter form of this possessive?",es:"Siempre hacen su tarea después de cenar."},
-  {sentence:"Is this you bag on the table?",wrong:"you",correct:"your",hint:"The underlined word is a pronoun. What is its possessive adjective form?",es:"¿Es esta tu bolsa en la mesa?"},
-  {sentence:"Maria loves she job at the hospital.",wrong:"she",correct:"her",hint:"The underlined word is a subject pronoun. What possessive adjective comes from it?",es:"María ama su trabajo en el hospital."},
-  {sentence:"I always keep I phone charged.",wrong:"I",correct:"my",hint:"The underlined word is a subject pronoun. What is the possessive adjective for this pronoun?",es:"Siempre mantengo mi teléfono cargado."},
-  {sentence:"The students do theirs projects on Fridays.",wrong:"theirs",correct:"their",hint:"'Theirs' vs 'their' — which one goes directly before a noun?",es:"Los estudiantes hacen sus proyectos los viernes."},
-  {sentence:"Carlos parks he car near the office.",wrong:"he",correct:"his",hint:"The underlined word is used as a subject. What form of this word shows possession?",es:"Carlos estaciona su carro cerca de la oficina."},
-  {sentence:"We always bring we lunch to the office.",wrong:"we",correct:"our",hint:"'We' is a subject pronoun. What possessive adjective replaces it before a noun?",es:"Siempre traemos nuestro almuerzo a la oficina."},
-  {sentence:"You sister calls every Sunday morning.",wrong:"You",correct:"Your",hint:"The underlined word is a pronoun. What is its possessive form that goes before nouns?",es:"Tu hermana llama cada domingo por la mañana."},
-  {sentence:"She drinks hers coffee with two sugars.",wrong:"hers",correct:"her",hint:"Look at the word after the underlined one — it's a noun. Which form goes before a noun?",es:"Ella toma su café con dos azúcares."},
-  {sentence:"My parents love theirs garden in spring.",wrong:"theirs",correct:"their",hint:"'Theirs' and 'their' look similar. Which one is a possessive adjective that goes before a noun?",es:"Mis padres aman su jardín en primavera."},
-  {sentence:"He reads he emails first thing in the morning.",wrong:"he",correct:"his",hint:"The underlined word appears before a noun. Is a subject pronoun the right form to use there?",es:"Él lee sus correos lo primero en la mañana."},
-  {sentence:"We exercise in we free time.",wrong:"we",correct:"our",hint:"'We' is a subject pronoun. What is the possessive adjective version of 'we'?",es:"Hacemos ejercicio en nuestro tiempo libre."},
-  {sentence:"She checks her messages and reply to hers boss.",wrong:"hers",correct:"her",hint:"The underlined word is before a noun ('boss'). Which form — 'her' or 'hers' — goes before a noun?",es:"Ella revisa sus mensajes y le responde a su jefe."},
-  {sentence:"I talk to my teacher about I progress.",wrong:"I",correct:"my",hint:"The underlined word comes before 'progress'. What possessive adjective replaces 'I' before a noun?",es:"Hablo con mi profesora sobre mi progreso."},
-  {sentence:"They visit theirs grandparents every Christmas.",wrong:"theirs",correct:"their",hint:"Before a noun like 'grandparents', do we use 'their' or 'theirs'? Think about the pattern.",es:"Ellos visitan a sus abuelos cada Navidad."},
-  {sentence:"He finishes he work before 5 PM.",wrong:"he",correct:"his",hint:"The underlined word is next to a noun. Is 'he' a subject pronoun or a possessive adjective?",es:"Él termina su trabajo antes de las 5 PM."},
-  {sentence:"She teaches hers students with a lot of patience.",wrong:"hers",correct:"her",hint:"'Students' is a noun right after the underlined word. Which form — 'her' or 'hers' — belongs before a noun?",es:"Ella enseña a sus estudiantes con mucha paciencia."}
+  {sentence:"She always forgets hers lunch at home.",wrong:"hers",correct:"her",reason:"her = she → her before a noun, not hers",hint:"Look at the underlined word — it comes before a noun. Do possessive adjectives before nouns end in 's'?",es:"Ella siempre olvida su almuerzo en casa."},
+  {sentence:"My brother uses he car to get to work every day.",wrong:"he",correct:"his",reason:"his = he → his as possessive adjective, not subject pronoun he",hint:"The underlined word is a subject pronoun. What is the possessive form of that pronoun?",es:"Mi hermano maneja su carro al trabajo todos los días."},
+  {sentence:"We love ours neighborhood very much.",wrong:"ours",correct:"our",reason:"our = we → our before a noun, not ours",hint:"The underlined word comes right before a noun. Which shorter form of this word goes before nouns?",es:"Amamos mucho nuestro vecindario."},
+  {sentence:"They always do theirs homework after dinner.",wrong:"theirs",correct:"their",reason:"their = they → their before a noun, not theirs",hint:"Before a noun like 'homework', do we use the longer or shorter form of this possessive?",es:"Siempre hacen su tarea después de cenar."},
+  {sentence:"Is this you bag on the table?",wrong:"you",correct:"your",reason:"your = you → your as possessive adjective, not subject pronoun you",hint:"The underlined word is a pronoun. What is its possessive adjective form?",es:"¿Es esta tu bolsa en la mesa?"},
+  {sentence:"Maria loves she job at the hospital.",wrong:"she",correct:"her",reason:"her = she → her as possessive adjective, not subject pronoun she",hint:"The underlined word is a subject pronoun. What possessive adjective comes from it?",es:"María ama su trabajo en el hospital."},
+  {sentence:"She always keeps I phone charged.",wrong:"I",correct:"her",reason:"her = she → her (it is her phone, not the speaker s)",hint:"The underlined word is a subject pronoun. What is the possessive adjective for this pronoun?",es:"Siempre mantengo mi teléfono cargado."},
+  {sentence:"The students do theirs projects on Fridays.",wrong:"theirs",correct:"their",reason:"their = they → their before a noun, not theirs",hint:"'Theirs' vs 'their' — which one goes directly before a noun?",es:"Los estudiantes hacen sus proyectos los viernes."},
+  {sentence:"Carlos parks he car near the office.",wrong:"he",correct:"his",reason:"his = he → his as possessive adjective, not subject pronoun he",hint:"The underlined word is used as a subject. What form of this word shows possession?",es:"Carlos estaciona su carro cerca de la oficina."},
+  {sentence:"We always bring we lunch to the office.",wrong:"we",correct:"our",reason:"our = we → our before a noun, not subject pronoun we",hint:"'We' is a subject pronoun. What possessive adjective replaces it before a noun?",es:"Siempre traemos nuestro almuerzo a la oficina."},
+  {sentence:"You sister calls every Sunday morning.",wrong:"You",correct:"Your",reason:"your = you → your before a noun, not subject pronoun You",hint:"The underlined word is a pronoun. What is its possessive form that goes before nouns?",es:"Tu hermana llama cada domingo por la mañana."},
+  {sentence:"She drinks hers coffee with two sugars.",wrong:"hers",correct:"her",reason:"her = she → her before a noun, not hers",hint:"Look at the word after the underlined one — it's a noun. Which form goes before a noun?",es:"Ella toma su café con dos azúcares."},
+  {sentence:"My parents love theirs garden in spring.",wrong:"theirs",correct:"their",reason:"their = they → their before a noun, not theirs",hint:"'Theirs' and 'their' look similar. Which one is a possessive adjective that goes before a noun?",es:"Mis padres aman su jardín en primavera."},
+  {sentence:"He reads he emails first thing in the morning.",wrong:"he",correct:"his",reason:"his = he → his as possessive adjective, not subject pronoun he",hint:"The underlined word appears before a noun. Is a subject pronoun the right form to use there?",es:"Él lee sus correos lo primero en la mañana."},
+  {sentence:"We exercise in we free time.",wrong:"we",correct:"our",reason:"our = we → our before a noun, not subject pronoun we",hint:"'We' is a subject pronoun. What is the possessive adjective version of 'we'?",es:"Hacemos ejercicio en nuestro tiempo libre."},
+  {sentence:"She checks her messages and reply to hers boss.",wrong:"hers",correct:"her",reason:"her = she → her before a noun, not hers",hint:"The underlined word is before a noun ('boss'). Which form — 'her' or 'hers' — goes before a noun?",es:"Ella revisa sus mensajes y le responde a su jefe."},
+  {sentence:"Carlos talks to his teacher about I progress.",wrong:"I",correct:"his",reason:"my = I → my before progress, not subject pronoun I",hint:"The underlined word comes before 'progress'. What possessive adjective replaces 'I' before a noun?",es:"Hablo con mi profesora sobre mi progreso."},
+  {sentence:"They visit theirs grandparents every Christmas.",wrong:"theirs",correct:"their",reason:"their = they → their before a noun, not theirs",hint:"Before a noun like 'grandparents', do we use 'their' or 'theirs'? Think about the pattern.",es:"Ellos visitan a sus abuelos cada Navidad."},
+  {sentence:"Marco always completes he work before 5 PM.",wrong:"he",correct:"his",reason:"his = he → his before work, not subject pronoun he",hint:"The underlined word is next to a noun. Is 'he' a subject pronoun or a possessive adjective?",es:"Él termina su trabajo antes de las 5 PM."},
+  {sentence:"She teaches hers students with a lot of patience.",wrong:"hers",correct:"her",reason:"her = she → her before students, not hers",hint:"'Students' is a noun right after the underlined word. Which form — 'her' or 'hers' — belongs before a noun?",es:"Ella enseña a sus estudiantes con mucha paciencia."}
 ];
 // ── MULTIPLE CHOICE ─────────────────────────────────────
 const mcData = [
   // ── its vs it's (30 items) ──
-  {sentence:"___ a great day to learn English!",options:["It's","Its","Its'","It"],answer:"It's",hint:"'It is a great day' ✅ → use it's",es:"¡___ un gran día para aprender inglés!"},
-  {sentence:"The book is famous because of ___ story.",options:["its","it's","it","his"],answer:"its",hint:"'it is story' ❌ → the story belongs to the book → use its",es:"El libro es famoso por ___ historia."},
-  {sentence:"___ been raining since this morning.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It has been raining' ✅ → It's = it has → use it's",es:"Ha estado lloviendo desde esta mañana."},
-  {sentence:"The cat always sleeps in ___ favorite spot.",options:["its","it's","his","her"],answer:"its",hint:"'it is favorite spot' ❌ → the spot belongs to the cat → use its",es:"El gato siempre duerme en ___ lugar favorito."},
-  {sentence:"___ really important to practice speaking.",options:["It's","Its","It is a","Its'"],answer:"It's",hint:"'It is really important' ✅ → use it's",es:"Es muy importante practicar el habla."},
-  {sentence:"The company updates ___ website every Monday.",options:["its","it's","their","his"],answer:"its",hint:"'it is website' ❌ → the website belongs to the company → use its",es:"La empresa actualiza ___ sitio web cada lunes."},
-  {sentence:"___ cold outside — take a jacket.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is cold outside' ✅ → use it's",es:"Hace frío afuera — lleva una chaqueta."},
-  {sentence:"The movie is boring because ___ story is weak.",options:["its","it's","it","their"],answer:"its",hint:"'it is story is weak' ❌ → the story belongs to the movie → use its",es:"La película es aburrida porque ___ historia es débil."},
-  {sentence:"___ Monday and the week starts now.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is Monday' ✅ → use it's",es:"Es lunes y la semana empieza ahora."},
-  {sentence:"The plant drops ___ leaves in autumn.",options:["its","it's","their","his"],answer:"its",hint:"'it is leaves' ❌ → the leaves belong to the plant → use its",es:"La planta pierde ___ hojas en otoño."},
-  {sentence:"___ not easy to wake up early every day.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is not easy' ✅ → use it's",es:"No es fácil despertarse temprano todos los días."},
-  {sentence:"The school is known for ___ great teachers.",options:["its","it's","their","his"],answer:"its",hint:"'it is great teachers' ❌ → the teachers belong to the school → use its",es:"La escuela es conocida por ___ excelentes profesores."},
-  {sentence:"___ 7 AM and the city is already awake.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is 7 AM' ✅ → use it's for time",es:"Son las 7 AM y la ciudad ya está despierta."},
-  {sentence:"The dog wags ___ tail when it is happy.",options:["its","it's","his","their"],answer:"its",hint:"'it is tail' ❌ → the tail belongs to the dog → use its",es:"El perro mueve ___ cola cuando está feliz."},
-  {sentence:"___ true that practice makes perfect.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is true that practice makes perfect' ✅ → use it's",es:"Es verdad que la práctica hace al maestro."},
-  {sentence:"The phone shows ___ battery level on screen.",options:["its","it's","his","their"],answer:"its",hint:"'it is battery level' ❌ → the battery belongs to the phone → use its",es:"El teléfono muestra ___ nivel de batería en pantalla."},
-  {sentence:"___ a pleasure to work with you.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is a pleasure' ✅ → use it's",es:"Es un placer trabajar contigo."},
-  {sentence:"The restaurant is famous for ___ tacos.",options:["its","it's","their","his"],answer:"its",hint:"'it is tacos' ❌ → the tacos belong to the restaurant → use its",es:"El restaurante es famoso por ___ tacos."},
-  {sentence:"___ normal to make mistakes when learning.",options:["It's","Its","Its'","It"],answer:"It's",hint:"'It is normal to make mistakes' ✅ → use it's",es:"Es normal cometer errores cuando se aprende."},
-  {sentence:"The car needs ___ tires changed.",options:["its","it's","their","his"],answer:"its",hint:"'it is tires' ❌ → the tires belong to the car → use its",es:"El carro necesita cambiar ___ llantas."},
-  {sentence:"___ surprising how fast children learn.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is surprising' ✅ → use it's",es:"Es sorprendente qué tan rápido aprenden los niños."},
-  {sentence:"The song loses ___ popularity after a year.",options:["its","it's","their","his"],answer:"its",hint:"'it is popularity' ❌ → the popularity belongs to the song → use its",es:"La canción pierde ___ popularidad después de un año."},
-  {sentence:"___ okay to ask questions in class.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is okay to ask questions' ✅ → use it's",es:"Está bien hacer preguntas en clase."},
-  {sentence:"The gym opens ___ doors at 6 AM.",options:["its","it's","their","our"],answer:"its",hint:"'it is doors' ❌ → the doors belong to the gym → use its",es:"El gimnasio abre ___ puertas a las 6 AM."},
-  {sentence:"___ getting dark — let's go home.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is getting dark' ✅ → use it's",es:"Está oscureciendo — vámonos a casa."},
-  {sentence:"The computer saves ___ files automatically.",options:["its","it's","their","his"],answer:"its",hint:"'it is files' ❌ → the files belong to the computer → use its",es:"El computador guarda ___ archivos automáticamente."},
-  {sentence:"___ interesting to read about other cultures.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is interesting to read' ✅ → use it's",es:"Es interesante leer sobre otras culturas."},
-  {sentence:"The store changes ___ prices every season.",options:["its","it's","their","his"],answer:"its",hint:"'it is prices' ❌ → the prices belong to the store → use its",es:"La tienda cambia ___ precios cada temporada."},
-  {sentence:"___ difficult to find parking downtown.",options:["It's","Its","It","Its'"],answer:"It's",hint:"'It is difficult to find parking' ✅ → use it's",es:"Es difícil encontrar estacionamiento en el centro."},
-  {sentence:"The app loses ___ users when it has bugs.",options:["its","it's","their","his"],answer:"its",hint:"'it is users' ❌ → the users belong to the app → use its",es:"La aplicación pierde ___ usuarios cuando tiene errores."},
+  {sentence:"___ a great day to learn English!",options:["It's","Its","Its'","It"],answer:"It's",reason:"it's = it is → 'It is a great day' ✅ contraction",hint:"'It is a great day' ✅ → use it's",es:"¡___ un gran día para aprender inglés!"},
+  {sentence:"The book is famous because of ___ story.",options:["its","it's","it","his"],answer:"its",reason:"its = possession → the story belongs to the book, not a contraction",hint:"'it is story' ❌ → the story belongs to the book → use its",es:"El libro es famoso por ___ historia."},
+  {sentence:"___ been raining since this morning.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it has → 'It has been raining' ✅ contraction",hint:"'It has been raining' ✅ → It's = it has → use it's",es:"Ha estado lloviendo desde esta mañana."},
+  {sentence:"The cat always sleeps in ___ favorite spot.",options:["its","it's","his","her"],answer:"its",reason:"its = possession → the favorite spot belongs to the cat",hint:"'it is favorite spot' ❌ → the spot belongs to the cat → use its",es:"El gato siempre duerme en ___ lugar favorito."},
+  {sentence:"___ really important to practice speaking.",options:["It's","Its","It is a","Its'"],answer:"It's",reason:"it's = it is → 'It is really important' ✅ contraction",hint:"'It is really important' ✅ → use it's",es:"Es muy importante practicar el habla."},
+  {sentence:"The company updates ___ website every Monday.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the website belongs to the company",hint:"'it is website' ❌ → the website belongs to the company → use its",es:"La empresa actualiza ___ sitio web cada lunes."},
+  {sentence:"___ cold outside — take a jacket.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is cold outside' ✅ contraction",hint:"'It is cold outside' ✅ → use it's",es:"Hace frío afuera — lleva una chaqueta."},
+  {sentence:"The movie is boring because ___ story is weak.",options:["its","it's","it","their"],answer:"its",reason:"its = possession → the story belongs to the movie",hint:"'it is story is weak' ❌ → the story belongs to the movie → use its",es:"La película es aburrida porque ___ historia es débil."},
+  {sentence:"___ Monday and the week starts now.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is Monday' ✅ contraction",hint:"'It is Monday' ✅ → use it's",es:"Es lunes y la semana empieza ahora."},
+  {sentence:"The plant drops ___ leaves in autumn.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the leaves belong to the plant",hint:"'it is leaves' ❌ → the leaves belong to the plant → use its",es:"La planta pierde ___ hojas en otoño."},
+  {sentence:"___ not easy to wake up early every day.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is not easy' ✅ contraction",hint:"'It is not easy' ✅ → use it's",es:"No es fácil despertarse temprano todos los días."},
+  {sentence:"The school is known for ___ great teachers.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the great teachers belong to the school",hint:"'it is great teachers' ❌ → the teachers belong to the school → use its",es:"La escuela es conocida por ___ excelentes profesores."},
+  {sentence:"___ 7 AM and the city is already awake.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is 7 AM' ✅ contraction",hint:"'It is 7 AM' ✅ → use it's for time",es:"Son las 7 AM y la ciudad ya está despierta."},
+  {sentence:"The dog wags ___ tail when it is happy.",options:["its","it's","his","their"],answer:"its",reason:"its = possession → the tail belongs to the dog",hint:"'it is tail' ❌ → the tail belongs to the dog → use its",es:"El perro mueve ___ cola cuando está feliz."},
+  {sentence:"___ true that practice makes perfect.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is true' ✅ contraction",hint:"'It is true that practice makes perfect' ✅ → use it's",es:"Es verdad que la práctica hace al maestro."},
+  {sentence:"The phone shows ___ battery level on screen.",options:["its","it's","his","their"],answer:"its",reason:"its = possession → the battery level belongs to the phone",hint:"'it is battery level' ❌ → the battery belongs to the phone → use its",es:"El teléfono muestra ___ nivel de batería en pantalla."},
+  {sentence:"___ a pleasure to work with you.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is a pleasure' ✅ contraction",hint:"'It is a pleasure' ✅ → use it's",es:"Es un placer trabajar contigo."},
+  {sentence:"The restaurant is famous for ___ tacos.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the tacos belong to the restaurant",hint:"'it is tacos' ❌ → the tacos belong to the restaurant → use its",es:"El restaurante es famoso por ___ tacos."},
+  {sentence:"___ normal to make mistakes when learning.",options:["It's","Its","Its'","It"],answer:"It's",reason:"it's = it is → 'It is normal' ✅ contraction",hint:"'It is normal to make mistakes' ✅ → use it's",es:"Es normal cometer errores cuando se aprende."},
+  {sentence:"The car needs ___ tires changed.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the tires belong to the car",hint:"'it is tires' ❌ → the tires belong to the car → use its",es:"El carro necesita cambiar ___ llantas."},
+  {sentence:"___ surprising how fast children learn.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is surprising' ✅ contraction",hint:"'It is surprising' ✅ → use it's",es:"Es sorprendente qué tan rápido aprenden los niños."},
+  {sentence:"The song loses ___ popularity after a year.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the popularity belongs to the song",hint:"'it is popularity' ❌ → the popularity belongs to the song → use its",es:"La canción pierde ___ popularidad después de un año."},
+  {sentence:"___ okay to ask questions in class.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is okay' ✅ contraction",hint:"'It is okay to ask questions' ✅ → use it's",es:"Está bien hacer preguntas en clase."},
+  {sentence:"The gym opens ___ doors at 6 AM.",options:["its","it's","their","our"],answer:"its",reason:"its = possession → the doors belong to the gym",hint:"'it is doors' ❌ → the doors belong to the gym → use its",es:"El gimnasio abre ___ puertas a las 6 AM."},
+  {sentence:"___ getting dark — let's go home.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is getting dark' ✅ contraction",hint:"'It is getting dark' ✅ → use it's",es:"Está oscureciendo — vámonos a casa."},
+  {sentence:"The computer saves ___ files automatically.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the files belong to the computer",hint:"'it is files' ❌ → the files belong to the computer → use its",es:"El computador guarda ___ archivos automáticamente."},
+  {sentence:"___ interesting to read about other cultures.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is interesting' ✅ contraction",hint:"'It is interesting to read' ✅ → use it's",es:"Es interesante leer sobre otras culturas."},
+  {sentence:"The store changes ___ prices every season.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the prices belong to the store",hint:"'it is prices' ❌ → the prices belong to the store → use its",es:"La tienda cambia ___ precios cada temporada."},
+  {sentence:"___ difficult to find parking downtown.",options:["It's","Its","It","Its'"],answer:"It's",reason:"it's = it is → 'It is difficult' ✅ contraction",hint:"'It is difficult to find parking' ✅ → use it's",es:"Es difícil encontrar estacionamiento en el centro."},
+  {sentence:"The app loses ___ users when it has bugs.",options:["its","it's","their","his"],answer:"its",reason:"its = possession → the users belong to the app",hint:"'it is users' ❌ → the users belong to the app → use its",es:"La aplicación pierde ___ usuarios cuando tiene errores."},
   // ── Other possessives (10 items) ──
-  {sentence:"Carlos always drinks ___ coffee black.",options:['his','him','he','hers'],answer:'his',hint:"Carlos = he → his (before a noun)",es:"Carlos siempre toma ___ café negro."},
-  {sentence:"Laura and Pedro do ___ homework together.",options:['their','theirs','them','they'],answer:'their',hint:"Laura and Pedro = they → their (before a noun)",es:"Laura y Pedro hacen ___ tarea juntos."},
-  {sentence:"Can I see ___ passport, please?",options:['your','yours','you','yore'],answer:'your',hint:"Talking to you → your (before a noun)",es:"¿Puedo ver ___ pasaporte, por favor?"},
-  {sentence:"Sofia loves ___ morning coffee routine.",options:['her','hers','she','his'],answer:'her',hint:"Sofia = she → her (before a noun)",es:"Sofía ama ___ rutina de café matutina."},
-  {sentence:"___ sister is a great teacher.",options:['My','Mine','Me','I'],answer:'My',hint:"I → My (before a noun)",es:"___ hermana es una gran maestra."},
-  {sentence:"We always clean ___ apartment on Sundays.",options:['our','ours','us','we'],answer:'our',hint:"We → our (before a noun)",es:"Siempre limpiamos ___ apartamento los domingos."},
-  {sentence:"He calls ___ mom every Sunday.",options:['his','him','he','hers'],answer:'his',hint:"He → his (before a noun)",es:"Él llama a ___ mamá cada domingo."},
-  {sentence:"She checks ___ emails every morning.",options:['her','hers','she','his'],answer:'her',hint:"She → her (before a noun)",es:"Ella revisa ___ correos cada mañana."},
-  {sentence:"They park ___ cars in the garage.",options:['their','theirs','them','they'],answer:'their',hint:"They → their (before a noun)",es:"Ellos estacionan ___ carros en el garaje."},
-  {sentence:"I always carry ___ notebook to class.",options:['my','mine','me','I'],answer:'my',hint:"I → my (before a noun)",es:"Siempre llevo ___ cuaderno a clase."}
+  {sentence:"Carlos always drinks ___ coffee black.",options:['his','him','he','hers'],answer:'his',reason:'his = he → his (possessive adjective) → Carlos is a man',hint:"Carlos = he → his (before a noun)",es:"Carlos siempre toma ___ café negro."},
+  {sentence:"Laura and Pedro do ___ homework together.",options:['their','theirs','them','they'],answer:'their',reason:'their = they → their before a noun → Laura and Pedro',hint:"Laura and Pedro = they → their (before a noun)",es:"Laura y Pedro hacen ___ tarea juntos."},
+  {sentence:"Can I see ___ passport, please?",options:['your','yours','you','yore'],answer:'your',reason:'your = you → your (talking to someone directly)',hint:"Talking to you → your (before a noun)",es:"¿Puedo ver ___ pasaporte, por favor?"},
+  {sentence:"Sofia loves ___ morning coffee routine.",options:['her','hers','she','his'],answer:'her',reason:'her = she → her (possessive adjective) → Sofia is a woman',hint:"Sofia = she → her (before a noun)",es:"Sofía ama ___ rutina de café matutina."},
+  {sentence:"___ sister is a great teacher.",options:['My','Mine','Me','I'],answer:'My',reason:'my = I → my (possessive adjective before a noun)',hint:"I → My (before a noun)",es:"___ hermana es una gran maestra."},
+  {sentence:"We always clean ___ apartment on Sundays.",options:['our','ours','us','we'],answer:'our',reason:'our = we → our (possessive adjective before a noun)',hint:"We → our (before a noun)",es:"Siempre limpiamos ___ apartamento los domingos."},
+  {sentence:"He calls ___ mom every Sunday.",options:['his','him','he','hers'],answer:'his',reason:'his = he → his (possessive adjective) → he is a man',hint:"He → his (before a noun)",es:"Él llama a ___ mamá cada domingo."},
+  {sentence:"She checks ___ emails every morning.",options:['her','hers','she','his'],answer:'her',reason:'her = she → her (possessive adjective) → she is a woman',hint:"She → her (before a noun)",es:"Ella revisa ___ correos cada mañana."},
+  {sentence:"They park ___ cars in the garage.",options:['their','theirs','them','they'],answer:'their',reason:'their = they → their before a noun',hint:"They → their (before a noun)",es:"Ellos estacionan ___ carros en el garaje."},
+  {sentence:"I always carry ___ notebook to class.",options:['my','mine','me','I'],answer:'my',reason:'my = I → my (possessive adjective before a noun)',hint:"I → my (before a noun)",es:"Siempre llevo ___ cuaderno a clase."}
 ];
 
 // ── STORY ───────────────────────────────────────────────
@@ -1135,7 +1135,7 @@ Sandra notices immediately. "Marcus," she says, "[its/it's] not a good idea to m
 
 The next day, [its/it's] leaves are green again. [Its/It's] amazing how fast plants can recover! Now there is a little sign next to Coco. [Its/It's] message says: "Do not move me. I know where I belong. 🌿"`;
 
-const storyAnswers = ["It's","its","It's","its","its","its","it's","his","it's","its","Its","it's","its","its","it's","its","It's","Its"];
+const storyAnswers = ["It's","its","It's","its","it's","its","it's","his","it's","its","Its","its","it's","its","its","its","It's","Its"];
 
 const storySpanish = `Conoce a Coco — la planta de la oficina. Es una pequeña planta verde que vive en el escritorio de Sandra. Todos aman a Coco porque sus hojas siempre están brillantes y verdes. Está claro que Sandra la cuida muy bien.
 
@@ -1151,11 +1151,11 @@ Al día siguiente, sus hojas vuelven a estar verdes. ¡Es increíble qué tan r�
 const speakData = [
   {q:"What is your favorite thing about your neighborhood?",hint:"Use: my, its, their...",sampleEn:"My neighborhood is very quiet. Its streets are safe and our neighbors are friendly.",sampleEs:"Mi vecindario es muy tranquilo. Sus calles son seguras y nuestros vecinos son amigables."},
   {q:"Describe your best friend's personality.",hint:"Use: his / her...",sampleEn:"My best friend is very funny. Her laugh is contagious and her heart is huge.",sampleEs:"Mi mejor amiga es muy graciosa. Su risa es contagiosa y su corazón es enorme."},
-  {q:"Tell me about your daily routine.",hint:"Use: my, its...",sampleEn:"My morning routine starts at 6 AM. I love my quiet time before the day gets busy.",sampleEs:"Mi rutina matutina comienza a las 6 AM. Me encanta mi tiempo tranquilo antes de que el día se vuelva ocupado."},
+  {q:"Tell me about your daily routine.",hint:"Use: my, your...",sampleEn:"My morning routine starts at 6 AM. I love my quiet time before the day gets busy.",sampleEs:"Mi rutina matutina comienza a las 6 AM. Me encanta mi tiempo tranquilo antes de que el día se vuelva ocupado."},
   {q:"What are your family's traditions?",hint:"Use: our, their, its...",sampleEn:"Our family loves Sunday lunch together. It's a tradition — everyone brings their favorite dish.",sampleEs:"A nuestra familia le encanta el almuerzo del domingo. Es una tradición — todos traen su plato favorito."},
-  {q:"Describe your dream job and its benefits.",hint:"Use: my, its, our...",sampleEn:"My dream job is to be a language coach. Its main benefit is helping people communicate better.",sampleEs:"Mi trabajo soñado es ser coach de idiomas. Su principal beneficio es ayudar a las personas a comunicarse mejor."},
+  {q:"Describe your dream job and its benefits.",hint:"Use: my, its...",sampleEn:"My dream job is to be a language coach. Its main benefit is helping people communicate better.",sampleEs:"Mi trabajo soñado es ser coach de idiomas. Su principal beneficio es ayudar a las personas a comunicarse mejor."},
   {q:"Tell me about your city and its main attractions.",hint:"Use: its, our, my...",sampleEn:"My city is Medellín. Its transformation is incredible — our parks and its metro make it a great place to live.",sampleEs:"Mi ciudad es Medellín. Su transformación es increíble — nuestros parques y su metro la hacen un lugar genial."},
-  {q:"What is something special about your culture?",hint:"Use: our, its, my...",sampleEn:"Our culture is very warm and festive. Its music, food, and its people are what make it unique.",sampleEs:"Nuestra cultura es muy cálida y festiva. Su música, su comida y su gente son lo que la hacen única."}
+  {q:"What is something special about your culture?",hint:"Use: our, its...",sampleEn:"Our culture is very warm and festive. Its music, food, and its people are what make it unique.",sampleEs:"Nuestra cultura es muy cálida y festiva. Su música, su comida y su gente son lo que la hacen única."}
 ];
 
 // ── SPELLING ────────────────────────────────────────────
@@ -1200,11 +1200,11 @@ function renderResultsPanel(panelId, correct, total, breakdown){
   var verdict = correct===total ? '🎉 Perfect score! Excellent work!' :
                 correct>=total*0.8 ? '👍 Great job! Almost there!' :
                 correct>=total*0.5 ? '💪 Good effort! Keep practicing.' :
-                '📚 Keep going! Review the hints and try again.';
+                '📚 Keep going! Review the answers and try again.';
   var rows = breakdown.map(function(b){
     return '<div class="result-row">' + (b.ok
-      ? '<span class="r-ok">✅</span><span class="r-ok">Q'+b.n+': Correct — <strong>'+b.ans+'</strong></span>'
-      : '<span class="r-bad">❌</span><span class="r-bad">Q'+b.n+': '+(b.yours?'You wrote "'+b.yours+'"':'No answer')+' → correct: <strong>'+b.ans+'</strong></span>'
+      ? '<span class="r-ok">✅</span><span class="r-ok">Q'+b.n+': Correct — <strong>'+b.ans+'</strong>'+(b.reason?'<div style="font-size:0.83rem;margin-top:2px;opacity:0.9;">📘 '+b.reason+'</div>':'')+' </span>'
+      : '<span class="r-bad">❌</span><span class="r-bad">Q'+b.n+': '+(b.yours?'You wrote "'+b.yours+'"':'No answer')+' → correct: <strong>'+b.ans+'</strong>'+(b.reason?'<div style="font-size:0.83rem;margin-top:2px;opacity:0.85;">📘 '+b.reason+'</div>':'')+' </span>'
     )+'</div>';
   }).join('');
   var panel = document.getElementById(panelId);
@@ -1235,7 +1235,7 @@ function buildFill(){
         '<button class="hint-btn" onclick="toggleHint(\'f'+i+'\')">💡 Hint / Pista</button>' +
         '<button class="answer-btn" onclick="showAnswer(\'f'+i+'\')">👁️ See Answer / Ver respuesta</button>' +
         '<div class="hint-box" id="hint-f'+i+'">'+q.hint+'</div>' +
-        '<div class="answer-box" id="ans-f'+i+'">✅ <strong>'+q.answer+'</strong></div>' +
+        '<div class="answer-box" id="ans-f'+i+'">✅ <strong>'+q.answer+'</strong>' + (q.reason ? '<div style="margin-top:5px;font-size:0.88rem;color:var(--teal);opacity:0.9;">📘 '+q.reason+'</div>' : '') + '</div>' +
         '<div class="feedback" id="ffb-'+i+'"></div>' +
       '</div></div>';
   });
@@ -1249,9 +1249,9 @@ function checkFill(){
     var dot = document.getElementById('fdot-'+i);
     var fb  = document.getElementById('ffb-'+i);
     var ok  = val === q.answer.toLowerCase();
-    if(ok){ correct++; dot.classList.add('done'); fb.textContent='✅ Correct! / ¡Correcto!'; fb.className='feedback ok'; }
+    if(ok){ correct++; dot.classList.add('done'); fb.innerHTML='&#x2705; Correct! / &#xa1;Correcto!' + (q.reason ? '<div style="margin-top:4px;font-size:0.88rem;color:#155724;">&#x1F4D8; '+q.reason+'</div>' : ''); fb.className='feedback ok'; }
     else { dot.classList.remove('done'); dot.classList.add('wrong-dot'); fb.textContent=val?'❌ Not quite. / Intenta de nuevo.':'⚠️ Missing answer'; fb.className='feedback bad'; }
-    breakdown.push({n:i+1,ok:ok,ans:q.answer,yours:val});
+    breakdown.push({n:i+1,ok:ok,ans:q.answer,yours:val,reason:q.reason||''});
   });
   renderResultsPanel('fill-results',correct,fillData.length,breakdown);
 }
@@ -1272,7 +1272,7 @@ function buildErrors(){
   var dots = document.getElementById('err-dots');
   dots.innerHTML = errData.map(function(_,i){ return '<div class="dot" id="edot-'+i+'"></div>'; }).join('');
   errData.forEach(function(q,i){
-    var highlighted = q.sentence.replace(q.wrong,'<span class="underline">'+q.wrong+'</span>');
+    var re = new RegExp('(^|\\s)(' + q.wrong.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\\\$&') + ')(\\s|[.,!?"]|$)','i'); var highlighted = q.sentence.replace(re, function(m,p1,p2,p3){ return p1+'<span class="underline">'+p2+'</span>'+p3; });
     container.innerHTML +=
       '<div class="q-block" id="eq-'+i+'" style="padding:18px 18px 14px;">' +
         '<div class="q-text" style="font-size:1.1rem; margin-bottom:10px;">' +
@@ -1298,7 +1298,7 @@ function buildErrors(){
           '<button class="hint-btn" onclick="toggleHint(\'e'+i+'\')">&#x1F4A1; Hint / Pista</button>' +
           '<button class="answer-btn" onclick="showAnswer(\'e'+i+'\')">&#x1F441;&#xFE0F; See Answer / Ver respuesta</button>' +
           '<div class="hint-box" id="hint-e'+i+'">'+q.hint+'</div>' +
-          '<div class="answer-box" id="ans-e'+i+'">&#x2705; Wrong word: <strong>"'+q.wrong+'"</strong> &#x2192; Correct: <strong>"'+q.correct+'"</strong></div>' +
+          '<div class="answer-box" id="ans-e'+i+'">&#x2705; Wrong word: <strong>"'+q.wrong+'"</strong> &#x2192; Correct: <strong>"'+q.correct+'"</strong>'+(q.reason?'<div style="margin-top:5px;font-size:0.88rem;color:var(--teal);">&#x1F4D8; '+q.reason+'</div>':'')+'</div>' +
         '</div>' +
       '</div>';
   });
@@ -1311,7 +1311,7 @@ function checkError(i){
   var fb  = document.getElementById('efb-'+i);
   if(val === q.correct.toLowerCase()){
     dot.classList.add('done');
-    fb.textContent='✅ Correct! / ¡Correcto!'; fb.className='feedback ok';
+    fb.innerHTML='✅ Correct! / ¡Correcto!' + (q.reason ? '<div style="margin-top:4px;font-size:0.88rem;color:#155724;">📘 '+q.reason+'</div>' : ''); fb.className='feedback ok';
   } else {
     dot.classList.remove('done'); dot.classList.add('wrong-dot');
     fb.textContent='❌ Not quite. Try again!'; fb.className='feedback bad';
@@ -1328,7 +1328,7 @@ function submitAllErrors(){
     var ok  = val === q.correct.toLowerCase();
     if(ok){ correct++; dot.classList.add('done'); fb.textContent='✅ Correct!'; fb.className='feedback ok'; }
     else { dot.classList.remove('done'); dot.classList.add('wrong-dot'); fb.textContent='❌ Not quite.'; fb.className='feedback bad'; }
-    breakdown.push({n:i+1,ok:ok,ans:q.correct,yours:val});
+    breakdown.push({n:i+1,ok:ok,ans:q.correct,yours:val,reason:q.reason||''});
   });
   renderResultsPanel('err-results',correct,errData.length,breakdown);
 }
@@ -1382,7 +1382,7 @@ function selectMC(i, chosen){
     if(chosenBtn)  chosenBtn.className='choice-btn selected-wrong';
     if(correctBtn) correctBtn.className='choice-btn correct-reveal';
     dot.classList.add('wrong-dot');
-    fb.textContent='❌ The correct answer is: "'+q.answer+'"'; fb.className='feedback bad';
+    fb.innerHTML='❌ Correct: <strong>'+q.answer+'</strong>' + (q.reason ? '<div style="margin-top:4px;font-size:0.88rem;color:#721c24;">📘 '+q.reason+'</div>' : ''); fb.className='feedback bad';
   }
 }
 
@@ -1397,7 +1397,7 @@ function submitAllMC(){
     });
     var ok = yours === q.answer;
     if(ok) correct++;
-    breakdown.push({n:i+1,ok:ok,ans:q.answer,yours:yours});
+    breakdown.push({n:i+1,ok:ok,ans:q.answer,yours:yours,reason:q.reason||''});
   });
   renderResultsPanel('mc-results',correct,mcData.length,breakdown);
 }
@@ -1429,16 +1429,29 @@ function buildStory(){
   container.innerHTML = html.replace(/\n/g,'<br>');
 }
 
+function storyReason(ans){
+  var a = ans.toLowerCase();
+  if(a === "it's") return "it's = it is (contraction) — 'It is...' makes sense here";
+  if(a === 'its')  return "its = possession (no apostrophe) — something belongs to it";
+  if(a === 'his')  return "his = he (Marcus) → his (possessive adjective before a noun)";
+  if(a === 'her')  return "her = she → her (possessive adjective before a noun)";
+  if(a === 'their')return "their = they → their (possessive adjective before a noun)";
+  if(a === 'our')  return "our = we → our (possessive adjective before a noun)";
+  if(a === 'my')   return "my = I → my (possessive adjective before a noun)";
+  if(a === 'your') return "your = you → your (possessive adjective before a noun)";
+  return '';
+}
+
 function checkStory(){
   var correct = 0;
   var breakdown = [];
   storyAnswers.forEach(function(ans,i){
     var sel = document.getElementById('ssel-'+i);
     if(!sel) return;
-    var ok = sel.value === ans;
+    var ok = sel.value.toLowerCase() === ans.toLowerCase();
     if(ok){ sel.className='story-select correct'; correct++; }
     else { sel.className='story-select wrong'; }
-    breakdown.push({n:i+1,ok:ok,ans:ans,yours:sel.value||''});
+    breakdown.push({n:i+1, ok:ok, ans:ans, yours:sel.value||'', reason:storyReason(ans)});
   });
   renderResultsPanel('story-results',correct,storyAnswers.length,breakdown);
 }
@@ -1525,7 +1538,7 @@ function submitAllSpell(){
       fb.textContent = raw ? '❌ Not quite. / ¡Inténtalo de nuevo!' : '⚠️ Missing answer';
       fb.className='feedback bad';
     }
-    breakdown.push({n:i+1,ok:ok,ans:q.spelling,yours:raw||''});
+    breakdown.push({n:i+1,ok:ok,ans:q.spelling,yours:raw||'',reason:''});
   });
   renderResultsPanel('spell-results',correct,spellData.length,breakdown);
 }
@@ -1540,7 +1553,6 @@ function revealAllSpell(){
 }
 
 // ── INIT ────────────────────────────────────────────────
-buildTranslate();
 buildFill();
 buildErrors();
 buildMC();
@@ -1549,5 +1561,7 @@ buildSpeaking();
 buildAlphabet();
 
 </script>
+
+
 </body>
 </html>
