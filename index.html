@@ -25,7 +25,7 @@
 
   body {
     font-family: 'Nunito', sans-serif;
-    background: #f0f4f8;
+    background: #e8ecf0;
     color: var(--blue);
     min-height: 100vh;
     font-size: 18px;
@@ -101,7 +101,7 @@
   .tab-btn:hover:not(.active) { color: white; }
 
   /* ── SECTIONS ── */
-  .section { display: none; padding: 20px 16px 60px; max-width: 860px; margin: 0 auto; }
+  .section { display: none; padding: 28px 20px 70px; max-width: 880px; margin: 0 auto; }
   .section.active { display: block; }
 
   /* ── CARDS ── */
@@ -632,6 +632,7 @@
   <button class="tab-btn"        onclick="showTab('errors',this)"   >🔍 Errors</button>
   <button class="tab-btn"        onclick="showTab('mc',this)"       >🎯 Multiple Choice</button>
   <button class="tab-btn"        onclick="showTab('story',this)"    >📖 Story</button>
+  <button class="tab-btn"        onclick="showTab('translate',this)" >🌐 Translate</button>
   <button class="tab-btn"        onclick="showTab('speaking',this)" >🗣️ Speaking</button>
   <button class="tab-btn"        onclick="showTab('alphabet',this)" >🔤 Alphabet</button>
 </nav>
@@ -873,6 +874,31 @@
 </section>
 
 <!-- ════════════════════════════════════════════
+     TAB · TRANSLATE (ES → EN)
+══════════════════════════════════════════════ -->
+<section id="translate" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🌐</div>
+    <h2>Translate to English</h2>
+    <p>Read each sentence in Spanish and write the full translation in English. (25 exercises)</p>
+    <p class="es">Lee cada oración en español y escribe la traducción completa en inglés. (25 ejercicios)</p>
+  </div>
+  <div class="card yellow-border">
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:14px 16px;margin-bottom:20px;color:#856404;font-size:0.95rem;">
+      ✏️ <strong>How to answer:</strong> Write the <strong>full sentence in English</strong> in the text box. The system accepts contractions (<em>it's</em>) or full forms (<em>it is</em>), uppercase or lowercase.<br>
+      <span style="font-size:0.88rem;font-style:italic;">Escribe la oración completa en inglés. El sistema acepta contracciones o formas completas, mayúsculas o minúsculas.</span>
+    </div>
+    <div class="progress-dots" id="tr-dots"></div>
+    <div id="tr-questions"></div>
+    <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="check-btn" onclick="submitAllTranslate()">📤 Submit All / Enviar todo</button>
+      <button class="answer-btn" onclick="revealAllTranslate()" style="background:var(--gray);">👁️ Show All Answers</button>
+    </div>
+    <div id="tr-results" class="results-panel" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
      TAB 6 · SPEAKING (7 questions)
 ══════════════════════════════════════════════ -->
 <section id="speaking" class="section">
@@ -1008,6 +1034,305 @@ const ALPHABET = [
 ];
 
 
+
+
+// ── TRANSLATE (ES → EN) ──────────────────────────────────
+var translateBuilt = false;
+const translateData = [
+  // its / it's (15 items)
+  {
+    es: "Es un dia perfecto para aprender ingles.",
+    answers: ["it's a perfect day to learn english","it is a perfect day to learn english"],
+    key: "it's",
+    hint: "How do we say 'Es un...' in English? Think: It ___ a perfect day. Can you contract those two words?",
+    reason: "it's = it is → 'It is a perfect day' ✅ contraction"
+  },
+  {
+    es: "El perro mueve su cola cuando esta feliz.",
+    answers: ["the dog wags its tail when it is happy","the dog wags its tail when it's happy"],
+    key: "its",
+    hint: "Su cola — whose tail? It belongs to the dog. Which possessive has no apostrophe?",
+    reason: "its = possession, no apostrophe → the tail belongs to the dog"
+  },
+  {
+    es: "Es importante llegar a tiempo al trabajo.",
+    answers: ["it's important to arrive on time to work","it is important to arrive on time to work","it's important to be on time to work","it is important to be on time to work"],
+    key: "it's",
+    hint: "Es importante — in English: It ___ important. Can you contract it?",
+    reason: "it's = it is → 'It is important to arrive on time' ✅"
+  },
+  {
+    es: "La empresa actualiza su sitio web cada mes.",
+    answers: ["the company updates its website every month","the company updates its website each month"],
+    key: "its",
+    hint: "Su sitio web — the website belongs to the company. Possession, no apostrophe.",
+    reason: "its = possession → the website belongs to the company"
+  },
+  {
+    es: "Es una pelicula muy interesante.",
+    answers: ["it's a very interesting movie","it is a very interesting movie","it's a very interesting film","it is a very interesting film"],
+    key: "it's",
+    hint: "Es una pelicula — start with It ___. You can contract those two words!",
+    reason: "it's = it is → 'It is a very interesting movie' ✅"
+  },
+  {
+    es: "El gato duerme en su lugar favorito.",
+    answers: ["the cat sleeps in its favorite spot","the cat sleeps in its favourite spot"],
+    key: "its",
+    hint: "Su lugar favorito — the spot belongs to the cat. Which possessive shows that?",
+    reason: "its = possession → the favorite spot belongs to the cat"
+  },
+  {
+    es: "Es verdad que practicar todos los dias ayuda mucho.",
+    answers: ["it's true that practicing every day helps a lot","it is true that practicing every day helps a lot","it's true that practicing every day helps","it is true that practicing every day helps"],
+    key: "it's",
+    hint: "Es verdad que — in English: It ___ true that... Contract it!",
+    reason: "it's = it is → 'It is true that...' ✅ contraction"
+  },
+  {
+    es: "El restaurante es famoso por su comida.",
+    answers: ["the restaurant is famous for its food"],
+    key: "its",
+    hint: "Por su comida — the food belongs to the restaurant. No apostrophe for possession.",
+    reason: "its = possession → the food belongs to the restaurant"
+  },
+  {
+    es: "Es normal sentirse nervioso antes de un examen.",
+    answers: ["it's normal to feel nervous before a test","it is normal to feel nervous before a test","it's normal to feel nervous before an exam","it is normal to feel nervous before an exam"],
+    key: "it's",
+    hint: "Es normal — in English: It ___ normal. Use a contraction!",
+    reason: "it's = it is → 'It is normal to feel nervous' ✅"
+  },
+  {
+    es: "La pelicula es genial pero su final es triste.",
+    answers: ["the movie is great but its ending is sad","the film is great but its ending is sad"],
+    key: "its",
+    hint: "Su final — the ending belongs to the movie. Possession or contraction?",
+    reason: "its = possession → the ending belongs to the movie"
+  },
+  {
+    es: "Es dificil encontrar estacionamiento en el centro.",
+    answers: ["it's difficult to find parking downtown","it is difficult to find parking downtown","it's hard to find parking downtown","it is hard to find parking downtown"],
+    key: "it's",
+    hint: "Es dificil — in English: It ___ difficult to... Contract it!",
+    reason: "it's = it is → 'It is difficult to find parking' ✅"
+  },
+  {
+    es: "La aplicacion pierde sus usuarios cuando tiene errores.",
+    answers: ["the app loses its users when it has bugs","the app loses its users when there are bugs","the application loses its users when it has bugs"],
+    key: "its",
+    hint: "Sus usuarios — the users belong to the app. Which form shows possession?",
+    reason: "its = possession → the users belong to the app"
+  },
+  {
+    es: "Es sorprendente que tan rapido aprenden los ninos.",
+    answers: ["it's surprising how fast children learn","it is surprising how fast children learn","it's amazing how fast children learn","it is amazing how fast children learn"],
+    key: "it's",
+    hint: "Es sorprendente — It ___ surprising how fast... Can you contract those two words?",
+    reason: "it's = it is → 'It is surprising how fast...' ✅"
+  },
+  {
+    es: "La tienda cambia sus precios cada temporada.",
+    answers: ["the store changes its prices every season","the store changes its prices each season","the shop changes its prices every season"],
+    key: "its",
+    hint: "Sus precios — the prices belong to the store. Possession, no apostrophe.",
+    reason: "its = possession → the prices belong to the store"
+  },
+  {
+    es: "Es interesante leer sobre otras culturas.",
+    answers: ["it's interesting to read about other cultures","it is interesting to read about other cultures"],
+    key: "it's",
+    hint: "Es interesante — It ___ interesting to read. Contract it!",
+    reason: "it's = it is → 'It is interesting to read...' ✅"
+  },
+  // Other possessives (10 items)
+  {
+    es: "Mi hermana trabaja en un hospital grande.",
+    answers: ["my sister works in a big hospital","my sister works in a large hospital"],
+    key: "my",
+    hint: "Mi hermana — who does the speaker talk about? Which possessive means 'mi'?",
+    reason: "my = I → my (possessive adjective before a noun)"
+  },
+  {
+    es: "Ella revisa sus correos cada manana.",
+    answers: ["she checks her emails every morning","she checks her email every morning"],
+    key: "her",
+    hint: "Ella and sus correos — the emails belong to her. Which possessive goes with 'she'?",
+    reason: "her = she → her (possessive adjective before a noun)"
+  },
+  {
+    es: "Carlos maneja su carro al trabajo todos los dias.",
+    answers: ["carlos drives his car to work every day","carlos drives his car to work each day"],
+    key: "his",
+    hint: "Su carro — the car belongs to Carlos (a man). Which possessive goes with 'he'?",
+    reason: "his = he → his (possessive adjective) → Carlos is a man"
+  },
+  {
+    es: "Nosotros amamos nuestro vecindario.",
+    answers: ["we love our neighborhood","we love our neighbourhood"],
+    key: "our",
+    hint: "Nuestro vecindario — the neighborhood belongs to us. What possessive goes with 'we'?",
+    reason: "our = we → our (possessive adjective before a noun)"
+  },
+  {
+    es: "Ellos visitan a sus abuelos cada domingo.",
+    answers: ["they visit their grandparents every sunday","they visit their grandparents on sundays","they visit their grandparents each sunday"],
+    key: "their",
+    hint: "Sus abuelos — the grandparents belong to them. Which possessive goes with 'they'?",
+    reason: "their = they → their (possessive adjective before a noun)"
+  },
+  {
+    es: "Sofia ama su rutina matutina.",
+    answers: ["sofia loves her morning routine"],
+    key: "her",
+    hint: "Su rutina — the routine belongs to Sofia (a woman). Which possessive goes with 'she'?",
+    reason: "her = she → her (possessive adjective) → Sofia is a woman"
+  },
+  {
+    es: "El llama a su mama cada domingo.",
+    answers: ["he calls his mom every sunday","he calls his mother every sunday","he calls his mom on sundays","he calls his mother on sundays"],
+    key: "his",
+    hint: "Su mama — the mom belongs to him. Which possessive adjective goes with 'he'?",
+    reason: "his = he → his (possessive adjective before a noun)"
+  },
+  {
+    es: "Siempre llevo mi cuaderno a clase.",
+    answers: ["i always carry my notebook to class","i always bring my notebook to class"],
+    key: "my",
+    hint: "Mi cuaderno — the notebook belongs to me (I). What possessive goes with 'I'?",
+    reason: "my = I → my (possessive adjective before a noun)"
+  },
+  {
+    es: "Es esta tu chaqueta? Te queda muy bien!",
+    answers: ["is this your jacket? it looks great on you","is this your jacket? it looks good on you","is this your jacket? it suits you well"],
+    key: "your",
+    hint: "Tu chaqueta — you are talking to someone directly. Which possessive means 'tu'?",
+    reason: "your = you → your (possessive adjective when talking to someone)"
+  },
+  {
+    es: "Nuestro equipo gana cada semana.",
+    answers: ["our team wins every week","our team wins each week"],
+    key: "our",
+    hint: "Nuestro equipo — the team belongs to us. Which possessive means 'nuestro'?",
+    reason: "our = we → our (possessive adjective before a noun)"
+  }
+];
+
+// ── TRANSLATE FUNCTIONS ───────────────────────────────────
+function buildTranslate(){
+  var container = document.getElementById('tr-questions');
+  var dots = document.getElementById('tr-dots');
+  dots.innerHTML = translateData.map(function(_,i){
+    return '<div class="dot" id="trdot-'+i+'"></div>';
+  }).join('');
+  var h = '';
+  translateData.forEach(function(q,i){
+    var reasonHtml = q.reason ? '<div style="margin-top:5px;font-size:0.88rem;color:var(--teal);">&#x1F4D8; '+q.reason+'</div>' : '';
+    h +=
+      '<div class="q-block" id="trq-'+i+'" style="padding:20px 18px 16px;">' +
+        '<div style="background:linear-gradient(135deg,#f0faf8,#e8f5f3);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin-bottom:12px;">' +
+          '<div style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:6px;">&#x1F1EA;&#x1F1F8; Spanish / Espa&ntilde;ol</div>' +
+          '<div style="font-size:1.1rem;font-weight:700;color:var(--blue);"><span class="q-num">'+(i+1)+'.</span> '+q.es+'</div>' +
+        '</div>' +
+        '<div style="margin-bottom:10px;">' +
+          '<span style="background:var(--red);color:white;font-size:0.75rem;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;">&#x1F3AF; Key: '+q.key+'</span>' +
+        '</div>' +
+        '<div style="background:#f8f9fa;border-radius:10px;padding:14px 16px;margin-bottom:10px;">' +
+          '<div style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray);margin-bottom:10px;">&#x1F1FA;&#x1F1F8; Your English translation:</div>' +
+          '<textarea id="trinput-'+i+'" class="tr-textarea" placeholder="Write the full sentence in English..." rows="3" autocomplete="off"></textarea>' +
+          '<div style="margin-top:10px;">' +
+            '<button class="check-btn" onclick="checkTranslateSingle('+i+', true)" style="padding:10px 20px;font-size:0.9rem;border-radius:10px;">&#x2705; Check / Revisar</button>' +
+          '</div>' +
+          '<div class="feedback" id="trfb-'+i+'" style="margin-top:8px;font-size:0.95rem;"></div>' +
+        '</div>' +
+        '<div class="hint-answer-area">' +
+          '<button class="hint-btn" onclick="toggleHint(\'tr'+i+'\')">&#x1F4A1; Hint / Pista</button>' +
+          '<button class="answer-btn" onclick="showAnswer(\'tr'+i+'\')">&#x1F441;&#xFE0F; See Answer / Ver respuesta</button>' +
+          '<div class="hint-box" id="hint-tr'+i+'">'+q.hint+'</div>' +
+          '<div class="answer-box" id="ans-tr'+i+'">&#x2705; <strong>'+q.answers[0]+'</strong>'+reasonHtml+'</div>' +
+        '</div>' +
+      '</div>';
+  });
+  container.innerHTML = h;
+}
+
+function normTr(str){
+  return str.toLowerCase()
+    .replace(/it is /g,"it's ")
+    .replace(/it has /g,"it's ")
+    .replace(/[.!?¿¡]+$/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+function checkTranslateSingle(i, showFb){
+  var raw = (document.getElementById('trinput-'+i).value||'').trim();
+  var norm = normTr(raw);
+  var q = translateData[i];
+  var accepted = q.answers.map(function(a){ return normTr(a); });
+  var exact = accepted.indexOf(norm) !== -1;
+  // partial: key word present and reasonable length
+  var hasKey = norm.indexOf(q.key.toLowerCase()) !== -1;
+  var partial = !exact && hasKey && norm.length >= 6;
+  var dot = document.getElementById('trdot-'+i);
+  var fb  = document.getElementById('trfb-'+i);
+  if(exact){
+    if(showFb){ fb.innerHTML='&#x2705; Correct! / &#xa1;Correcto!'; fb.className='feedback ok'; }
+    dot.classList.remove('wrong-dot'); dot.classList.add('done');
+    return 'exact';
+  } else if(partial){
+    if(showFb){ fb.innerHTML='&#x1F7E1; Good try! You used the right possessive — check word order or spelling.'; fb.className='feedback'; fb.style.color='#c97000'; }
+    dot.classList.remove('wrong-dot'); dot.classList.add('done');
+    return 'partial';
+  } else {
+    if(showFb){ fb.textContent = raw ? 'Not quite — check the hint! / &#xa1;Revisa la pista!' : 'Missing answer / Falta respuesta'; fb.className='feedback bad'; }
+    dot.classList.remove('done'); dot.classList.add('wrong-dot');
+    return 'wrong';
+  }
+}
+
+function submitAllTranslate(){
+  var exact=0, partial=0, breakdown=[];
+  translateData.forEach(function(q,i){
+    var result = checkTranslateSingle(i, true);
+    if(result==='exact') exact++;
+    else if(result==='partial') partial++;
+    var val = (document.getElementById('trinput-'+i).value||'').trim();
+    breakdown.push({n:i+1, ok:result!=='wrong', ans:q.answers[0], yours:val, reason:q.reason||''});
+  });
+  var correct=exact+partial, total=translateData.length, pct=Math.round((correct/total)*100);
+  var verdict = exact===total ? '&#x1F389; Perfect! Every translation is spot on!' :
+                correct===total ? '&#x1F44D; Great job! All possessives correct.' :
+                correct>=Math.floor(total*0.7) ? '&#x1F4AA; Good effort! Keep practicing.' :
+                '&#x1F4DA; Keep going! Review the answers and try again.';
+  var rows = breakdown.map(function(b){
+    var reasonDiv = b.reason ? '<div style="font-size:0.83rem;margin-top:2px;opacity:0.85;">&#x1F4D8; '+b.reason+'</div>' : '';
+    return '<div class="result-row">' + (b.ok
+      ? '<span class="r-ok">&#x2705; Q'+b.n+': Correct!'+reasonDiv+'</span>'
+      : '<span class="r-bad">&#x274C; Q'+b.n+': '+(b.yours?'Check your answer':'No answer')+' &rarr; <strong>'+b.ans+'</strong>'+reasonDiv+'</span>'
+    )+'</div>';
+  }).join('');
+  var panel = document.getElementById('tr-results');
+  panel.innerHTML =
+    '<h3>&#x1F4CA; Results / Resultados</h3>' +
+    '<div class="score-big">'+correct+' / '+total+'</div>' +
+    '<div class="bar-bg"><div class="bar-fill" style="width:'+pct+'%"></div></div>' +
+    '<div style="font-size:0.85rem;opacity:0.7;margin-bottom:12px;">'+pct+'% &middot; '+exact+' exact &middot; '+partial+' partial</div>' +
+    rows +
+    '<div class="verdict">'+verdict+'</div>';
+  panel.style.display='block';
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function revealAllTranslate(){
+  translateData.forEach(function(q,i){
+    var ta = document.getElementById('trinput-'+i);
+    if(ta){ ta.value=q.answers[0]; ta.style.color='var(--teal)'; ta.style.borderColor='var(--teal)'; }
+    document.getElementById('trdot-'+i).classList.add('done');
+    var fb = document.getElementById('trfb-'+i);
+    fb.textContent='Answer revealed / Respuesta mostrada'; fb.className='feedback ok';
+  });
+}
 
 // ── FILL IN THE BLANK ──────────────────────────────────
 const fillData = [
@@ -1181,6 +1506,10 @@ function showTab(id, btn) {
   document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
+  if(id === 'translate' && !translateBuilt){
+    translateBuilt = true;
+    buildTranslate();
+  }
 }
 
 // ── HINT / ANSWER HELPERS ───────────────────────────────
